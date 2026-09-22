@@ -37,42 +37,45 @@
 </section>
 
 <!-- ========== Works ==========
-  1項目 = .work-item 1つ。増やすときはこのブロックごと複製して
-  画像・タイトルだけ差し替えればOK(説明文は入れない方針)。
+  今は全点を .work-featured(非対称・トリミングなしグリッド)の2点1組で並べている。
+  作品数が増えてきたら、後半を .work-strip(横スクロールのフィルムストリップ)に
+  切り替える方針。.work-strip のスタイルは一旦styles.cssから外してあるので、
+  再導入するときは書き直すこと。
+  タイトルは表示しない方針(写真のみ)。alt属性には内容の説明を入れる。
   data-category は表示には使っていないが、将来ジャンル別に
   絞り込み表示を追加したくなったときのための目印として残している。
 -->
 <section class="works" id="works">
   <h2 class="section-label">Works</h2>
 
-  <div class="work-grid">
+  <div class="work-featured">
 
     <article class="work-item" data-category="photography">
       <div class="work-image">
         <img src="images/01.JPG" alt="河岸">
       </div>
-      <h3 class="work-title">川岸</h3>
     </article>
 
     <article class="work-item" data-category="photography">
       <div class="work-image">
         <img src="images/02.jpg" alt="雲海と夕景">
       </div>
-      <h3 class="work-title">Untitled 02</h3>
+    </article>
+
+  </div>
+
+  <div class="work-featured work-featured--reverse">
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <img src="images/04.jpg" alt="車体のクローズアップ">
+      </div>
     </article>
 
     <article class="work-item" data-category="photography">
       <div class="work-image">
         <img src="images/03.jpg" alt="木々と水面">
       </div>
-      <h3 class="work-title">Untitled 03</h3>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/04.jpg" alt="車体のクローズアップ">
-      </div>
-      <h3 class="work-title">Untitled 04</h3>
     </article>
 
   </div>

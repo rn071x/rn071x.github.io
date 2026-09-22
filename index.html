@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRACE</title>
+<meta name="description" content="TRACE — Photography / Works / Notes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo">TRACE</a>
+
+    <nav class="nav" id="nav">
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== Hero ========== -->
+<section class="hero" id="top">
+  <h1 class="hero-title">TRACE</h1>
+  <p class="hero-sub">Photography / Works / Notes</p>
+</section>
+
+<!-- ========== Works ==========
+  1項目 = .work-item 1つ。増やすときはこのブロックごと複製して
+  画像・タイトル・説明文だけ差し替えればOK。
+  data-category は表示には使っていないが、将来ジャンル別に
+  絞り込み表示を追加したくなったときのための目印として残している。
+-->
+<section class="works" id="works">
+  <h2 class="section-label">Works</h2>
+
+  <div class="work-grid">
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <img src="images/01.jpg" alt="河岸">
+      </div>
+      <h3 class="work-title">川岸</h3>
+      <p class="work-desc">川岸を撮影した写真。自然の色味は残しつつ、透明感のある現像を目指した一作品。</p>
+    </article>
+
+    <article class="work-item" data-category="collage">
+      <div class="work-image">
+        <!-- <img src="images/02.jpg" alt="作品タイトル"> -->
+      </div>
+      <h3 class="work-title">Untitled 02</h3>
+      <p class="work-desc">説明文をここに。</p>
+    </article>
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <!-- <img src="images/works/03.jpg" alt="作品タイトル"> -->
+      </div>
+      <h3 class="work-title">Untitled 03</h3>
+      <p class="work-desc">説明文をここに。</p>
+    </article>
+
+    <article class="work-item" data-category="other">
+      <div class="work-image">
+        <!-- <img src="images/works/04.jpg" alt="作品タイトル"> -->
+      </div>
+      <h3 class="work-title">Untitled 04</h3>
+      <p class="work-desc">説明文をここに。</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== About ========== -->
+<section class="about" id="about">
+  <h2 class="section-label">About</h2>
+  <p class="about-text">
+    写真と装い。<br>
+    その時惹かれた何かを、編成、編集するのが好きです。<br>
+    <br>
+    Drawn to what catches my eye.
+  </p>
+</section>
+
+<!-- ========== Contact ========== -->
+<section class="contact" id="contact">
+  <h2 class="section-label">Contact</h2>
+  <ul class="contact-list">
+    <li><a href="mailto:rn071.work@gmail.com">rn071.work@gmail.com</a></li>
+    <li><a href="https://instagram.com/rn071xx" target="_blank" rel="noopener">Instagram</a></li>
+  </ul>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <span class="footer-logo">TRACE</span>
+  <span class="footer-copy">&copy; 2026 TRACE</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

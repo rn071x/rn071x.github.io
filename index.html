@@ -37,10 +37,9 @@
 </section>
 
 <!-- ========== Works ==========
-  今は全点を .work-featured(非対称・トリミングなしグリッド)の2点1組で並べている。
-  作品数が増えてきたら、後半を .work-strip(横スクロールのフィルムストリップ)に
-  切り替える方針。.work-strip のスタイルは一旦styles.cssから外してあるので、
-  再導入するときは書き直すこと。
+  前半(01〜07)は .work-featured(非対称・トリミングなしグリッド)の2点1組。
+  8点目以降は .work-strip(横スクロールのフィルムストリップ)に切り替え済み。
+  新しい作品は基本 .work-strip 側に追加していく。
   タイトルは表示しない方針(写真のみ)。alt属性には内容の説明を入れる。
   data-category は表示には使っていないが、将来ジャンル別に
   絞り込み表示を追加したくなったときのための目印として残している。
@@ -90,7 +89,7 @@
 
   </div>
 
-  <div class="work-featured work-featured--even">
+  <div class="work-featured work-featured--offset-a">
 
     <article class="work-item" data-category="photography">
       <div class="work-image">
@@ -105,6 +104,28 @@
     </article>
 
   </div>
+
+  <div class="work-strip">
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <img src="images/08.jpg" alt="木漏れ日と青紅葉">
+      </div>
+    </article>
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <img src="images/09.jpg" alt="車内の座席と光">
+      </div>
+    </article>
+
+    <article class="work-item" data-category="photography">
+      <div class="work-image">
+        <img src="images/10.jpg" alt="紅葉と岩肌">
+      </div>
+    </article>
+
+  </div>
 </section>
 
 <!-- ========== About ========== -->
@@ -114,12 +135,15 @@
     <div class="about-photo">
       <img src="images/myimage.jpg" alt="プロフィール写真">
     </div>
-    <p class="about-text">
-      岩手を拠点に活動。佇まいを淑やかに魅せることに興味があります。<br>
-      その時惹かれた何かを、編成、編集するのが好きです。<br>
-      <br>
-      Drawn to what catches my eye.
-    </p>
+    <div class="about-copy">
+      <p class="about-name">森｜Mori</p>
+      <p class="about-text">
+        岩手を拠点に活動。佇まいを淑やかに魅せることに興味があります。<br>
+        その時惹かれた何かを、編成、編集するのが好きです。<br>
+        <br>
+        Drawn to what catches my eye.
+      </p>
+    </div>
   </div>
 </section>
 

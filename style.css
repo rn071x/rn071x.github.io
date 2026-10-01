@@ -1,7 +1,7 @@
 /* ==========================================================
    TRACE — base tokens
-   色は「温度のある白」「濃淡のあるグレー」「深い炭色」の3系統。
-   ボルドーはホバー時にだけ、ほんの少し使う。
+   色は「温度のある白」「濃淡のあるグレー」と、TRACEの色であるボルドー。
+   ボルドーは見出しのイタリック・番号・リンクの線・ボタンに使う。
    ========================================================== */
 :root {
   --bg: #f4f1ec;
@@ -11,12 +11,14 @@
   --ink-faint: #9d978e;
   --line: #dcd6cc;
 
+  /* Services の背景:深い炭色 */
   --night: #1f1d1b;
   --night-ink: #e8e3db;
   --night-soft: #9a948b;
   --night-line: #3a3633;
 
   --bordeaux: #6b2430;
+  --bordeaux-soft: rgba(107, 36, 48, 0.32);
 
   --serif: 'EB Garamond', serif;
   --serif-ja: 'Noto Serif JP', serif;
@@ -93,6 +95,12 @@ section,
   font-weight: 400;
   font-size: 22px;
   letter-spacing: 0.02em;
+  color: var(--bordeaux);
+}
+
+::selection {
+  background: var(--bordeaux);
+  color: var(--bg);
 }
 
 .section-note {
@@ -101,14 +109,20 @@ section,
   color: var(--ink-faint);
 }
 
-/* 細い線が、ホバーでゆっくりボルドーに伸びるリンク */
+/* 薄いボルドーの線が、ホバーでゆっくり濃いボルドーに伸びるリンク */
 .link-line {
   position: relative;
   display: inline-block;
   font-size: 13px;
   letter-spacing: 0.06em;
   padding-bottom: 4px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--bordeaux-soft);
+  transition: color 0.9s var(--ease);
+}
+
+.link-line:hover,
+.link-line:focus-visible {
+  color: var(--bordeaux);
 }
 
 .link-line::after {
@@ -393,7 +407,7 @@ a.media:focus-visible img {
 
 .hero-caption span {
   font-style: italic;
-  color: var(--ink-faint);
+  color: var(--bordeaux);
   margin-right: 10px;
 }
 
@@ -414,7 +428,7 @@ a.media:focus-visible img {
   display: block;
   width: 40px;
   height: 1px;
-  background: var(--ink-faint);
+  background: var(--bordeaux);
   transform-origin: left;
   animation: hint 3.6s var(--ease) infinite;
 }
@@ -493,7 +507,7 @@ a.media:focus-visible img {
   font-family: var(--serif);
   font-style: italic;
   font-size: 14px;
-  color: var(--ink-faint);
+  color: var(--bordeaux);
 }
 
 .exhibit-title {
@@ -570,6 +584,10 @@ a.media:focus-visible img {
    ========================================================== */
 .services {
   background: var(--night);
+  color: var(--night-ink);
+}
+
+.services .section-label {
   color: var(--night-ink);
 }
 
@@ -658,6 +676,11 @@ a.media:focus-visible img {
 
 .services .link-line {
   border-color: var(--night-line);
+}
+
+.services .link-line:hover,
+.services .link-line:focus-visible {
+  color: var(--night-ink);
 }
 
 .services .link-line::after {
@@ -764,7 +787,7 @@ a.media:focus-visible img {
   font-family: var(--serif);
   font-size: 20px;
   letter-spacing: 0.02em;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--bordeaux-soft);
   padding-bottom: 2px;
   transition: color 0.8s var(--ease), border-color 0.8s var(--ease);
 }
@@ -880,7 +903,8 @@ a.media:focus-visible img {
 .btn {
   display: inline-block;
   padding: 13px 34px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--bordeaux);
+  color: var(--bordeaux);
   font-size: 12px;
   letter-spacing: 0.12em;
   transition: background 0.8s var(--ease), color 0.8s var(--ease);
@@ -888,7 +912,7 @@ a.media:focus-visible img {
 
 .btn:hover,
 .btn:focus-visible {
-  background: var(--ink);
+  background: var(--bordeaux);
   color: var(--bg);
 }
 
@@ -982,7 +1006,7 @@ a.media:focus-visible img {
   font-family: var(--serif);
   font-style: italic;
   font-size: 16px;
-  color: var(--ink-soft);
+  color: var(--bordeaux);
 }
 
 .detail-mobile {

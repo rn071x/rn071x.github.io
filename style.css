@@ -244,6 +244,21 @@ a.media:focus-visible img {
   transform: scaleX(1);
 }
 
+/* 言語の切り替え(JA / EN) */
+.nav a.nav-lang {
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.nav a.nav-lang::after {
+  left: 24px;
+  width: calc(100% - 24px);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -308,6 +323,14 @@ a.media:focus-visible img {
   font-weight: 300;
   font-size: 18px;
   letter-spacing: 0.2em;
+}
+
+/* 英語版の見出しは Garamond で */
+.hero-lead--en {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0.02em;
 }
 
 .hero-text {
@@ -663,6 +686,13 @@ a.media:focus-visible img {
   font-size: clamp(24px, 2.6vw, 34px);
   line-height: 1.8;
   letter-spacing: 0.16em;
+}
+
+.about-lead--en {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
 }
 
 .about-text {
@@ -1220,6 +1250,11 @@ a.media:focus-visible img {
 
   .nav a::after {
     display: none;
+  }
+
+  .nav a.nav-lang {
+    padding-left: var(--gutter);
+    border-left: none;
   }
 
   .nav-toggle {

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MONO ARCHIVE — TRACE</title>
-<meta name="description" content="MONO ARCHIVE — 写真家向けのポートフォリオWebテンプレート。">
+<meta name="description" content="MONO ARCHIVE — A portfolio website template for photographers.">
 <script>
-  // 動きの準備ができるまで要素を隠す。script.js が読めなかったときは、隠すのをやめて普通に表示する
   document.documentElement.classList.add('js');
   setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
 </script>
@@ -15,27 +14,26 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/mono-archive/">
 <link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/mono-archive/">
-<link rel="stylesheet" href="../../style.css?v=4">
+<link rel="stylesheet" href="../../../style.css?v=4">
 </head>
 <!--
-  テンプレート詳細ページ。中身は data/templates.js の slug が data-template と一致するものから描画される。
-  新しいテンプレートを追加するときは、このフォルダを複製して <title>・description・data-template を書き換える。
+  テンプレート詳細ページ(英語版)。文面は data/templates.js の en から描画される。
 -->
-<body class="page-detail" data-base="../../" data-home="../../" data-template="mono-archive">
+<body class="page-detail" data-base="../../../" data-home="../../" data-template="mono-archive">
 
 <header class="site-header">
   <div class="header-inner">
     <a href="../../" class="logo">TRACE</a>
 
-    <nav class="nav" id="nav" aria-label="メインナビゲーション">
+    <nav class="nav" id="nav" aria-label="Main navigation">
       <a href="../../#templates">Templates</a>
       <a href="../../#services">Services</a>
       <a href="../../#about">About</a>
       <a href="../../#contact">Contact</a>
-      <a class="nav-lang" href="../../en/templates/mono-archive/" hreflang="en" lang="en">EN</a>
+      <a class="nav-lang" href="../../../templates/mono-archive/" hreflang="ja" lang="ja">JA</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
       <span></span>
       <span></span>
     </button>
@@ -49,7 +47,7 @@
   <span class="footer-copy">&copy; 2026 TRACE</span>
 </footer>
 
-<script src="../../data/templates.js?v=4"></script>
-<script src="../../script.js?v=4"></script>
+<script src="../../../data/templates.js?v=4"></script>
+<script src="../../../script.js?v=4"></script>
 </body>
 </html>

@@ -4,9 +4,36 @@
 
 (() => {
   const body = document.body;
-  const base = body.dataset.base || '';
-  const templates = window.TRACE_TEMPLATES || [];
+  const base = body.dataset.base || '';   // 画像やデータへのパス(サイトのルートまで)
+  const home = body.dataset.home || '';   // リンク先へのパス(その言語のトップまで)
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'ja';
+  // 英語版では、各テンプレートの en の中身で日本語の項目を上書きする
+  const templates = (window.TRACE_TEMPLATES || []).map((t) => (lang === 'en' && t.en ? { ...t, ...t.en } : t));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // スクリプトが描画する文言
+  const TEXT = {
+    ja: {
+      details: '詳細を見る',
+      purchase: 'Purchase',
+      purchaseSoon: 'Purchase — Coming soon',
+      crumb: 'パンくずリスト',
+      build: 'このテンプレートをもとにしたサイト制作も承ります。',
+      contact: 'メールで問い合わせる',
+      subject: (title) => `【${title}】サイト制作のご相談`,
+      missing: 'テンプレートが見つかりません。',
+    },
+    en: {
+      details: 'View details',
+      purchase: 'Purchase',
+      purchaseSoon: 'Purchase — Coming soon',
+      crumb: 'Breadcrumb',
+      build: 'TRACE can also build your site based on this template.',
+      contact: 'Contact by email',
+      subject: (title) => `[${title}] Website build inquiry`,
+      missing: 'Template not found.',
+    },
+  }[lang];
 
   const esc = (s = '') =>
     String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -23,7 +50,7 @@
     if (!mount) return;
     mount.innerHTML = templates.map((t, i) => {
       const soon = t.status === 'soon';
-      const href = soon ? '' : `${base}templates/${t.slug}/`;
+      const href = soon ? '' : `${home}templates/${t.slug}/`;
       const media = `<img src="${esc(src(t.cover))}" alt="${esc(t.coverAlt)}" loading="lazy">`;
       return `
       <article class="exhibit exhibit--${VARIANTS[i % VARIANTS.length]}${soon ? ' is-soon' : ''}">
@@ -33,11 +60,11 @@
         <div class="exhibit-info">
           <p class="exhibit-no reveal">No. ${esc(t.no)}</p>
           <h3 class="exhibit-title reveal" data-delay="1">${esc(t.title)}</h3>
-          <p class="exhibit-use reveal" data-delay="1">${esc(t.use)}<span>${esc(t.useJa)}</span></p>
+          <p class="exhibit-use reveal" data-delay="1">${esc(t.use)}${t.useJa ? `<span>${esc(t.useJa)}</span>` : ''}</p>
           <p class="exhibit-summary reveal" data-delay="2">${esc(t.summary)}</p>
           ${soon ? '' : `
           <p class="exhibit-price reveal" data-delay="3">${esc(t.price)}</p>
-          <a class="link-line reveal" data-delay="3" href="${href}">詳細を見る</a>`}
+          <a class="link-line reveal" data-delay="3" href="${href}">${TEXT.details}</a>`}
         </div>
       </article>`;
     }).join('');
@@ -48,19 +75,19 @@
     const mount = document.querySelector('[data-render="detail"]');
     if (!mount) return;
     const t = templates.find((x) => x.slug === body.dataset.template);
-    if (!t) { mount.innerHTML = '<p class="detail-missing">Template not found.</p>'; return; }
+    if (!t) { mount.innerHTML = `<p class="detail-missing">${TEXT.missing}</p>`; return; }
 
     const purchase = t.purchaseUrl
-      ? `<a class="btn" href="${esc(t.purchaseUrl)}" target="_blank" rel="noopener">Purchase</a>`
-      : '<span class="btn is-disabled" aria-disabled="true">Purchase — Coming soon</span>';
+      ? `<a class="btn" href="${esc(t.purchaseUrl)}" target="_blank" rel="noopener">${TEXT.purchase}</a>`
+      : `<span class="btn is-disabled" aria-disabled="true">${TEXT.purchaseSoon}</span>`;
 
     mount.innerHTML = `
       <section class="detail-hero">
-        <nav class="crumb reveal" aria-label="パンくずリスト"><a href="${base}#templates">Templates</a><span>/</span>${esc(t.title)}</nav>
+        <nav class="crumb reveal" aria-label="${TEXT.crumb}"><a href="${home}#templates">Templates</a><span>/</span>${esc(t.title)}</nav>
         <div class="detail-head">
           <p class="exhibit-no reveal">No. ${esc(t.no)}</p>
           <h1 class="detail-title reveal" data-delay="1">${esc(t.title)}</h1>
-          <p class="exhibit-use reveal" data-delay="2">${esc(t.use)}<span>${esc(t.useJa)}</span></p>
+          <p class="exhibit-use reveal" data-delay="2">${esc(t.use)}${t.useJa ? `<span>${esc(t.useJa)}</span>` : ''}</p>
         </div>
         <figure class="detail-cover media">
           <img src="${esc(src(t.cover))}" alt="${esc(t.coverAlt)}" fetchpriority="high">
@@ -124,10 +151,10 @@
           </div>
         </div>
         <div class="detail-build reveal" data-delay="1">
-          <p>このテンプレートをもとにしたサイト制作も承ります。</p>
-          <a class="link-line" href="${mailto(`【${t.title}】サイト制作のご相談`)}">メールで問い合わせる</a>
+          <p>${TEXT.build}</p>
+          <a class="link-line" href="${mailto(TEXT.subject(t.title))}">${TEXT.contact}</a>
         </div>
-        <a class="detail-back reveal" data-delay="2" href="${base}#templates">← Templates</a>
+        <a class="detail-back reveal" data-delay="2" href="${home}#templates">← Templates</a>
       </section>`;
   }
 

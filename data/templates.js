@@ -7,6 +7,8 @@
       (中の index.html の <title> と data-template も書き換える)
    3. 画像を images/templates/<slug>/ に置く
    画像パスはサイトのルートからの相対パスで書く。
+   英語版の文面は各テンプレートの en にまとめる(書かなかった項目は日本語のまま使われる)。
+   英語版の詳細ページは en/templates/<slug>/ に置く。
    ========================================================== */
 
 window.TRACE_TEMPLATES = [
@@ -57,6 +59,45 @@ window.TRACE_TEMPLATES = [
       { label: 'Built with', value: 'HTML, CSS, JavaScript, GSAP' },
       { label: 'Tone', value: 'Monochrome' },
     ],
+    // 英語版(/en/)で使う文面。ここに書いた項目だけが日本語を上書きする
+    en: {
+      useJa: '',
+      summary: 'A portfolio template for photographers. Black and white, with sections that shift as you scroll.',
+      coverAlt: 'The MONO ARCHIVE top page: a black-and-white photo of tall buildings with the words VISUAL ARCHIVE over it',
+      description: [
+        'A one-page portfolio template for photographers.',
+        'It includes selected works, a horizontal gallery, a profile, a year-by-year archive and a contact section. It also works on smartphones.',
+      ],
+      features: [
+        { title: 'Opening', text: 'The top photo shrinks as you scroll.' },
+        { title: 'Selected Works', text: 'Shows 4–6 key works in different sizes.' },
+        { title: 'Gallery', text: 'A gallery that moves sideways as you scroll down. Swipe on smartphones.' },
+        { title: 'Archive', text: 'Lists past work by year, with category filters.' },
+      ],
+      gallery: [
+        { src: 'images/templates/mono-archive/shrink.jpg', alt: 'The top photo shrunk into a small window after scrolling', caption: 'Opening — scroll' },
+        { src: 'images/templates/mono-archive/works.jpg', alt: 'Selected Works with photos in different sizes and positions', caption: 'Selected Works' },
+        { src: 'images/templates/mono-archive/gallery.jpg', alt: 'The horizontal gallery', caption: 'Gallery' },
+        { src: 'images/templates/mono-archive/archive.jpg', alt: 'The Archive, listing works by year on a black background', caption: 'Archive' },
+      ],
+      mobile: [
+        { src: 'images/templates/mono-archive/m-hero.jpg', alt: 'The top page on a smartphone' },
+        { src: 'images/templates/mono-archive/m-gallery.jpg', alt: 'The gallery on a smartphone' },
+        { src: 'images/templates/mono-archive/m-archive.jpg', alt: 'The archive on a smartphone' },
+      ],
+      includes: [
+        'HTML / CSS / JavaScript files (no build step)',
+        'Data files for replacing text, photos and works',
+        'A guide to customizing the template (README, in Japanese)',
+        'Desktop and smartphone support / reduced-motion support',
+      ],
+      specs: [
+        { label: 'Pages', value: 'Single page' },
+        { label: 'Sections', value: 'Opening / Works / Gallery / About / Archive / Contact' },
+        { label: 'Built with', value: 'HTML, CSS, JavaScript, GSAP' },
+        { label: 'Tone', value: 'Monochrome' },
+      ],
+    },
   },
   {
     slug: '',
@@ -68,5 +109,10 @@ window.TRACE_TEMPLATES = [
     summary: '次のテンプレートを準備中です。',
     cover: 'images/brand/10.jpg',
     coverAlt: '暗い岩肌の前で色づく紅葉',
+    en: {
+      useJa: '',
+      summary: 'The next template is in progress.',
+      coverAlt: 'Red maple leaves in front of a dark rock face',
+    },
   },
 ];

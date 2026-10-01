@@ -3,201 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRACE</title>
-<meta name="description" content="TRACE — Photography / Works / Notes">
+<title>TRACE — Web Templates</title>
+<meta name="description" content="TRACE — 写真家やクリエイター向けのWebテンプレートの販売と、サイト制作。">
+<script>
+  // 動きの準備ができるまで要素を隠す。script.js が読めなかったときは、隠すのをやめて普通に表示する
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
-<body>
+<!--
+  TRACE — Web Templates
+  テンプレートの一覧は data/templates.js から自動で描画される。
+  写真は images/brand/、テンプレートの画像は images/templates/<slug>/ に置く。
+-->
+<body data-base="">
 
 <!-- ========== Header ========== -->
 <header class="site-header">
   <div class="header-inner">
     <a href="#top" class="logo">TRACE</a>
 
-    <nav class="nav" id="nav">
-      <a href="#works">Works</a>
+    <nav class="nav" id="nav" aria-label="メインナビゲーション">
       <a href="#templates">Templates</a>
+      <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
       <span></span>
       <span></span>
     </button>
   </div>
 </header>
 
+<main>
+
 <!-- ========== Hero ========== -->
 <section class="hero" id="top">
-  <h1 class="hero-title">TRACE</h1>
-  <p class="hero-sub">Photography / Works / Notes</p>
+  <div class="hero-copy">
+    <p class="eyebrow reveal">Web Templates — Iwate, Japan</p>
+    <h1 class="hero-title reveal" data-delay="1">TRACE</h1>
+    <p class="hero-lead reveal" data-delay="2">佇まいを、淑やかに。</p>
+    <p class="hero-text reveal" data-delay="3">
+      写真家やクリエイター向けの、Webサイトのテンプレートを販売しています。<br>
+      購入してご自身で使うほか、サイト制作のご依頼も受け付けています。
+    </p>
+    <div class="hero-links reveal" data-delay="4">
+      <a class="link-line" href="#templates">Templates を見る</a>
+      <a class="link-line" href="#services">構築のご相談</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <figure class="hero-photo media" data-drift="-0.04">
+      <img src="images/brand/02.jpg" alt="雲の切れ間から差す夕方の光" fetchpriority="high">
+    </figure>
+    <a class="hero-preview media" href="templates/mono-archive/" data-drift="0.03">
+      <img src="images/templates/mono-archive/hero.jpg" alt="テンプレート MONO ARCHIVE のトップ画面">
+    </a>
+    <p class="hero-caption reveal" data-delay="5"><span>No. 01</span> MONO ARCHIVE</p>
+  </div>
+
+  <p class="scroll-hint" aria-hidden="true"><span></span>Scroll</p>
 </section>
 
-<!-- ========== Works ==========
-  前半(01〜07)は .work-featured(非対称・トリミングなしグリッド)の2点1組。
-  8点目以降は .work-strip(横スクロールのフィルムストリップ)に切り替え済み。
-  新しい作品は基本 .work-strip 側に追加していく。
-  タイトルは表示しない方針(写真のみ)。alt属性には内容の説明を入れる。
-  data-category は表示には使っていないが、将来ジャンル別に
-  絞り込み表示を追加したくなったときのための目印として残している。
--->
-<section class="works" id="works">
-  <h2 class="section-label">Works</h2>
-
-  <div class="work-featured">
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/01.JPG" alt="河岸">
-      </div>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/02.jpg" alt="雲海と夕景">
-      </div>
-    </article>
-
-  </div>
-
-  <div class="work-featured work-featured--reverse">
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/04.jpg" alt="車体のクローズアップ">
-      </div>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/03.jpg" alt="木々と水面">
-      </div>
-    </article>
-
-  </div>
-
-  <div class="work-featured work-featured--solo">
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/05.jpg" alt="木漏れ日の森">
-      </div>
-    </article>
-
-  </div>
-
-  <div class="work-featured work-featured--offset-a">
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/06.jpg" alt="森の中の小さな堰">
-      </div>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/07.jpg" alt="保安林の標識">
-      </div>
-    </article>
-
-  </div>
-
-  <div class="work-strip">
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/08.jpg" alt="木漏れ日と青紅葉">
-      </div>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/09.jpg" alt="車内の座席と光">
-      </div>
-    </article>
-
-    <article class="work-item" data-category="photography">
-      <div class="work-image">
-        <img src="images/10.jpg" alt="紅葉と岩肌">
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ========== Templates ==========
-  TraceStudio で制作したWebサイトテンプレートの一覧。
-  新しいテンプレートは .template-item を1つ複製して、番号・画像・文章・リンクを書き換える。
-  ・サムネイルは images/templates/ に 1440×900 程度で置く
-  ・Purchase は Polar の商品ページができたら <span> を <a href="Polarのリンク"> に置き換える
-  ・制作相談のメールは mailto のアドレス(専用アドレスに変える場合はここ)と件名を変更する
--->
+<!-- ========== Templates ========== -->
 <section class="templates" id="templates">
-  <h2 class="section-label">Templates</h2>
-  <p class="templates-lead">
-    TraceStudio で制作した、Webサイトのテンプレートです。<br>
-    購入してご自身で編集するほか、テンプレートをもとにしたサイト制作のご相談も承ります。
-  </p>
+  <header class="section-head">
+    <h2 class="section-label reveal">Templates</h2>
+    <p class="section-note reveal" data-delay="1">販売中のテンプレート</p>
+  </header>
+  <div class="exhibits" data-render="templates"></div>
+</section>
 
-  <div class="template-list">
+<!-- ========== Interlude ========== -->
+<figure class="interlude">
+  <div class="interlude-frame media" data-drift="0.05">
+    <img src="images/brand/01.jpg" alt="岩肌の洞の奥、静かな水面に光が落ちている" loading="lazy">
+  </div>
+  <figcaption class="reveal">Photograph — TRACE</figcaption>
+</figure>
 
-    <article class="template-item">
-      <a class="template-thumb" href="https://mono-archive.rn071-work.workers.dev/" target="_blank" rel="noopener">
-        <img src="images/templates/mono-archive.jpg" alt="MONO ARCHIVEのトップ画面。モノクロの高層ビル写真に、VISUAL ARCHIVEの巨大な文字が重なっている" loading="lazy">
-      </a>
-      <div class="template-body">
-        <p class="template-no">01</p>
-        <h3 class="template-name">MONO ARCHIVE</h3>
-        <p class="template-desc">
-          白と黒だけで組んだ、写真家のためのポートフォリオ。スクロールに合わせて、サイトの空間そのものが変わっていきます。
+<!-- ========== Services ========== -->
+<section class="services" id="services">
+  <header class="section-head">
+    <h2 class="section-label reveal">Services</h2>
+    <p class="section-note reveal" data-delay="1">テンプレートの購入と、サイト制作のご依頼</p>
+  </header>
+
+  <div class="services-body">
+    <figure class="services-photo media" data-drift="-0.03">
+      <img src="images/brand/04.jpg" alt="光を映す車体の曲面" loading="lazy">
+    </figure>
+
+    <div class="service-list">
+      <article class="service reveal">
+        <p class="service-no">01</p>
+        <h3 class="service-title">Use a template</h3>
+        <p class="service-ja">テンプレートを購入する</p>
+        <p class="service-text">
+          購入したテンプレートの文章や写真を差し替えて、ご自身で公開できます。
+          文章や写真はデータファイルにまとめてあるので、HTMLを細かく編集する必要はありません。
         </p>
-        <ul class="template-tags">
-          <li>Photographer</li>
-          <li>Monochrome</li>
-          <li>Motion</li>
-        </ul>
-        <div class="template-actions">
-          <a class="template-btn" href="https://mono-archive.rn071-work.workers.dev/" target="_blank" rel="noopener">Live Preview ↗</a>
-          <span class="template-btn is-disabled" aria-disabled="true">Purchase — Coming soon</span>
-        </div>
-        <a class="template-consult" href="mailto:rn071.work@gmail.com?subject=%E3%80%90MONO%20ARCHIVE%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">このテンプレートで制作を相談する →</a>
-      </div>
-    </article>
+        <p class="service-meta"><span>Price</span>テンプレートごとに設定</p>
+        <a class="link-line" href="#templates">Templates を見る</a>
+      </article>
 
+      <article class="service service--offset reveal" data-delay="2">
+        <p class="service-no">02</p>
+        <h3 class="service-title">Build with TRACE</h3>
+        <p class="service-ja">サイト制作を依頼する</p>
+        <p class="service-text">
+          テンプレートをもとに、TRACEがサイトを制作します。
+          写真や文章の差し替えから公開まで対応します。
+        </p>
+        <p class="service-meta"><span>Price</span>内容に応じてお見積もり</p>
+        <a class="link-line" href="mailto:rn071.work@gmail.com?subject=%E3%80%90TRACE%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ========== About ========== -->
 <section class="about" id="about">
-  <h2 class="section-label">About</h2>
+  <header class="section-head">
+    <h2 class="section-label reveal">About</h2>
+  </header>
+
   <div class="about-body">
-    <div class="about-photo">
-      <img src="images/myimage.jpg" alt="プロフィール写真">
-    </div>
     <div class="about-copy">
-      <p class="about-name">森｜Mori</p>
-      <p class="about-text">
-        岩手を拠点に活動。佇まいを淑やかに魅せることに興味があります。<br>
-        その時惹かれた何かを、編成、編集するのが好きです。<br>
-        <br>
-        Drawn to what catches my eye.
+      <p class="about-lead reveal">佇まいを、<br>淑やかに魅せる。</p>
+      <p class="about-text reveal" data-delay="1">
+        TRACEは、岩手を拠点に、Webテンプレートの制作・販売とサイト制作をしています。<br>
+        写真と余白を活かした、落ち着いたデザインのサイトを作っています。
       </p>
+    </div>
+
+    <div class="about-visual">
+      <figure class="about-photo about-photo--a media" data-drift="-0.035">
+        <img src="images/brand/05.jpg" alt="木漏れ日の差す森" loading="lazy">
+      </figure>
+      <figure class="about-photo about-photo--b media" data-drift="0.045">
+        <img src="images/brand/08.jpg" alt="光を受けて透ける青紅葉" loading="lazy">
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- ========== Contact ========== -->
 <section class="contact" id="contact">
-  <h2 class="section-label">Contact</h2>
-  <ul class="contact-list">
-    <li><a href="mailto:rn071.work@gmail.com">rn071.work@gmail.com</a></li>
-    <li><a href="https://instagram.com/rn071xx" target="_blank" rel="noopener">Instagram</a></li>
-  </ul>
+  <header class="section-head">
+    <h2 class="section-label reveal">Contact</h2>
+  </header>
+  <div class="contact-body">
+    <p class="contact-text reveal">サイト制作のご依頼や、テンプレートについてのお問い合わせはこちらから。</p>
+    <ul class="contact-list reveal" data-delay="1">
+      <li><a href="mailto:rn071.work@gmail.com">rn071.work@gmail.com</a></li>
+      <li><a href="https://instagram.com/rn071xx" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
 </section>
+
+</main>
 
 <!-- ========== Footer ========== -->
 <footer class="site-footer">
@@ -205,6 +177,7 @@
   <span class="footer-copy">&copy; 2026 TRACE</span>
 </footer>
 
-<script src="script.js"></script>
+<script src="data/templates.js?v=3"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

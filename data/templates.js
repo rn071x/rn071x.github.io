@@ -20,9 +20,9 @@ window.TRACE_TEMPLATES = [
     use: 'Photographer Portfolio',
     useJa: '写真家のポートフォリオ',
     summary: '写真家向けのポートフォリオテンプレート。白と黒を基調に、スクロールに合わせて画面が切り替わります。',
-    price: 'Coming soon',           // 例) '¥12,000'
-    priceNote: '',                  // 例) '税込 / 1サイト分のライセンス'
-    purchaseUrl: '',                // Polar の商品ページができたらここに入れる
+    price: '$59',                   // Polar の価格と合わせる
+    priceNote: '1サイト分のライセンス',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_lFFFEtLeRZizXNFzRkh97l4e1JDdkEgtJagMi2vw36B', // Polar のチェックアウトリンク
     previewUrl: 'https://mono-archive.rn071-work.workers.dev/',
     cover: 'images/templates/mono-archive/hero.jpg',
     coverAlt: 'MONO ARCHIVEのトップ画面。モノクロの高層ビルの写真に、VISUAL ARCHIVEの文字が重なる',
@@ -62,6 +62,7 @@ window.TRACE_TEMPLATES = [
     // 英語版(/en/)で使う文面。ここに書いた項目だけが日本語を上書きする
     en: {
       useJa: '',
+      priceNote: 'License for one website',
       summary: 'A portfolio template for photographers. Black and white, with sections that shift as you scroll.',
       coverAlt: 'The MONO ARCHIVE top page: a black-and-white photo of tall buildings with the words VISUAL ARCHIVE over it',
       description: [

@@ -50,7 +50,7 @@ window.TRACE_TEMPLATES = [
     includes: [
       'HTML / CSS / JavaScript 一式(ビルド不要)',
       '文章・写真・作品を差し替えるためのデータファイル',
-      '差し替え方をまとめたガイド(README)',
+      '差し替え方をまとめたガイド(README・日本語/英語)',
       'PC・スマートフォン対応 / 動きを抑える設定にも対応',
     ],
     specs: [
@@ -88,7 +88,7 @@ window.TRACE_TEMPLATES = [
       includes: [
         'HTML / CSS / JavaScript files (no build step)',
         'Data files for replacing text, photos and works',
-        'A guide to customizing the template (README, in Japanese)',
+        'A guide to customizing the template (README in English and Japanese)',
         'Desktop and smartphone support / reduced-motion support',
       ],
       specs: [

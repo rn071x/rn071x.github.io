@@ -117,8 +117,8 @@ window.TRACE_TEMPLATES = [
     summary: '個人クリエイター向けのポートフォリオテンプレート。余白と端正な文字で、作品を静かに見せます。',
     price: '$39',
     priceNote: '1サイト分のライセンス',
-    purchaseUrl: '',                // Polar のチェックアウトリンク(未設定の間は Coming soon)
-    previewUrl: '',                 // Cloudflare の公開URL(未設定の間は Live Preview を表示しない)
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_sP2AdDAHApajl9JwY95p5dLKAMwf1EKXrvrZn1Uhm8g', // Polar のチェックアウトリンク
+    previewUrl: 'https://ecru.rn071-work.workers.dev/',
     cover: 'images/templates/ecru/hero.jpg',
     productImages: [
       'images/templates/ecru/product-4x3.jpg',

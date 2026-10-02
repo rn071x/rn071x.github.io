@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /* ==========================================================
-   TRACE — 商品の構造化データ(JSON-LD)を生成する
+   TRACE — 商品の構造化データ(JSON-LD)とサイトマップを生成する
    ----------------------------------------------------------
-   data/templates.js を読み、各テンプレートの詳細ページ
-   (templates/<slug>/index.html と en/templates/<slug>/index.html)の <head> に
-   Google の Product 構造化データと canonical を書き込む。
+   data/templates.js を読み、
+   ・各テンプレートの詳細ページ(templates/<slug>/index.html と en/templates/<slug>/index.html)の
+     <head> に、Google の Product 構造化データと canonical を書き込む
+   ・sitemap.xml(日本語版・英語版の対応関係つき)を書き出す
 
    使い方:
      node tools/build-structured-data.js          書き込む
@@ -110,9 +111,35 @@ function writeBlock(file, block) {
   return true;
 }
 
+/* ---------- サイトマップ ---------- */
+function buildSitemap(paths) {
+  const entry = (p) => {
+    const alternates = LANGS.map(({ lang, dir }) =>
+      `    <xhtml:link rel="alternate" hreflang="${lang}" href="${SITE}/${dir}${p}"/>`).join('\n');
+    return LANGS.map(({ dir }) => `  <url>\n    <loc>${SITE}/${dir}${p}</loc>\n${alternates}\n  </url>`).join('\n');
+  };
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<!-- tools/build-structured-data.js で自動生成。手で編集しない -->',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ...paths.map(entry),
+    '</urlset>',
+    '',
+  ].join('\n');
+}
+
+function writeFile(rel, content) {
+  const file = path.join(ROOT, rel);
+  const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
+  if (current === content) return false;
+  if (!check) fs.writeFileSync(file, content);
+  return true;
+}
+
 /* ---------- 実行 ---------- */
 const templates = loadTemplates();
 const changed = [];
+const sitemapPaths = [''];  // トップページ(日本語版 / と英語版 /en/)
 
 templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
   LANGS.forEach(({ lang, dir }) => {
@@ -125,11 +152,14 @@ templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
       warnings.push(`${rel} がありません(詳細ページのフォルダを作ってください)`);
       return;
     }
+    if (lang === 'ja') sitemapPaths.push(`templates/${t.slug}/`);
     const product = buildProduct(t, pageUrl, lang);
     if (!product) warnings.push(`${t.slug}: 価格 "${t.price}" を読み取れないため、Product は出力しません(canonical のみ)`);
     if (writeBlock(file, buildBlock(product, pageUrl))) changed.push(rel);
   });
 });
+
+if (writeFile('sitemap.xml', buildSitemap(sitemapPaths))) changed.push('sitemap.xml');
 
 warnings.forEach((w) => console.warn(`! ${w}`));
 if (check) {

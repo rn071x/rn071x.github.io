@@ -9,6 +9,8 @@
    画像パスはサイトのルートからの相対パスで書く。
    英語版の文面は各テンプレートの en にまとめる(書かなかった項目は日本語のまま使われる)。
    英語版の詳細ページは en/templates/<slug>/ に置く。
+   データを変えたら、最後に次のコマンドで詳細ページの構造化データ(JSON-LD)を更新する:
+     node tools/build-structured-data.js
    ========================================================== */
 
 window.TRACE_TEMPLATES = [
@@ -25,6 +27,11 @@ window.TRACE_TEMPLATES = [
     purchaseUrl: 'https://buy.polar.sh/polar_cl_lFFFEtLeRZizXNFzRkh97l4e1JDdkEgtJagMi2vw36B', // Polar のチェックアウトリンク
     previewUrl: 'https://mono-archive.rn071-work.workers.dev/',
     cover: 'images/templates/mono-archive/hero.jpg',
+    // Google の商品構造化データ用の画像(16:9 の cover に加えて 4:3・1:1 を推奨)
+    productImages: [
+      'images/templates/mono-archive/product-4x3.jpg',
+      'images/templates/mono-archive/product-1x1.jpg',
+    ],
     coverAlt: 'MONO ARCHIVEのトップ画面。モノクロの高層ビルの写真に、VISUAL ARCHIVEの文字が重なる',
     description: [
       '写真家向けの、1ページ構成のポートフォリオテンプレートです。',

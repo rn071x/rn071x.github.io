@@ -21,4 +21,14 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/mono-archive/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/mono-archive/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/ecru/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/ecru/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/en/templates/ecru/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/ecru/"/>
+  </url>
 </urlset>

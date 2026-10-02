@@ -108,8 +108,97 @@ window.TRACE_TEMPLATES = [
     },
   },
   {
-    slug: '',
+    slug: 'ecru',
     no: '02',
+    status: 'available',
+    title: 'ÉCRU',
+    use: 'Creator Portfolio',
+    useJa: 'クリエイターのポートフォリオ',
+    summary: '個人クリエイター向けのポートフォリオテンプレート。余白と端正な文字で、作品を静かに見せます。',
+    price: '$39',
+    priceNote: '1サイト分のライセンス',
+    purchaseUrl: '',                // Polar のチェックアウトリンク(未設定の間は Coming soon)
+    previewUrl: '',                 // Cloudflare の公開URL(未設定の間は Live Preview を表示しない)
+    cover: 'images/templates/ecru/hero.jpg',
+    productImages: [
+      'images/templates/ecru/product-4x3.jpg',
+      'images/templates/ecru/product-1x1.jpg',
+    ],
+    coverAlt: 'ÉCRUのトップ画面。Considered forms. の見出しと、白い花瓶に挿した桜の写真',
+    description: [
+      '写真家、デザイナー、作家など、個人や小規模で活動するクリエイター向けのポートフォリオテンプレートです。',
+      'Home、作品一覧、作品詳細、プロフィール、お問い合わせの5ページ構成。作品はデータファイルに1件足すだけで、一覧と詳細ページに自動で表示されます。スマートフォンにも対応しています。',
+    ],
+    features: [
+      { title: 'Home', text: 'トップの写真と短いコピー、代表作4点、プロフィールの抜粋、お問い合わせへの導線。' },
+      { title: 'Works', text: '大きさと配置に緩急をつけた作品一覧。カテゴリで絞り込めます。' },
+      { title: 'Work Detail', text: '大きな作品画像を中心に、制作年・カテゴリ・説明・制作背景を表示。' },
+      { title: 'Motion', text: 'ゆっくりしたフェードと、ごく小さなホバーの動きだけ。' },
+    ],
+    gallery: [
+      { src: 'images/templates/ecru/works.jpg', alt: '大きさと配置の異なる作品が並ぶ作品一覧', caption: 'Works' },
+      { src: 'images/templates/ecru/detail.jpg', alt: '白い壺の写真を大きく見せる作品詳細ページ', caption: 'Work Detail' },
+      { src: 'images/templates/ecru/about.jpg', alt: 'ポートレートと紹介文のプロフィールページ', caption: 'About' },
+    ],
+    mobile: [
+      { src: 'images/templates/ecru/m-hero.jpg', alt: 'スマートフォンでのトップ画面' },
+      { src: 'images/templates/ecru/m-works.jpg', alt: 'スマートフォンでの作品一覧' },
+      { src: 'images/templates/ecru/m-detail.jpg', alt: 'スマートフォンでの作品詳細' },
+    ],
+    includes: [
+      'HTML / CSS / JavaScript 一式(ビルド不要・外部ライブラリなし)',
+      '文章・写真・作品を差し替えるためのデータファイル',
+      '差し替え方をまとめたガイド(README・日本語/英語)',
+      'PC・スマートフォン対応 / 動きを抑える設定にも対応',
+    ],
+    specs: [
+      { label: 'Pages', value: '5ページ構成' },
+      { label: 'Pages list', value: 'Home / Works / Work Detail / About / Contact' },
+      { label: 'Built with', value: 'HTML, CSS, JavaScript' },
+      { label: 'Tone', value: 'Warm white / Grey' },
+    ],
+    en: {
+      useJa: '',
+      priceNote: 'License for one website',
+      summary: 'A portfolio template for independent creators. Generous space and clean type keep the focus on the work.',
+      coverAlt: 'The ÉCRU top page: the heading “Considered forms.” beside a photo of white vases with cherry blossoms',
+      description: [
+        'A portfolio template for photographers, designers, makers and other independent creators.',
+        'Five pages: Home, Works, Work Detail, About and Contact. Add one entry to the data file and the work appears in the list with its own detail page. It also works on smartphones.',
+      ],
+      features: [
+        { title: 'Home', text: 'A hero photo with a short line, four selected works, a short profile and a link to contact.' },
+        { title: 'Works', text: 'Works laid out in varied sizes and positions, with category filters.' },
+        { title: 'Work Detail', text: 'A large image with year, category, description and background.' },
+        { title: 'Motion', text: 'Only slow fades and a very small hover effect.' },
+      ],
+      gallery: [
+        { src: 'images/templates/ecru/works.jpg', alt: 'The Works page with works in different sizes and positions', caption: 'Works' },
+        { src: 'images/templates/ecru/detail.jpg', alt: 'A work detail page showing a large photo of a white vase', caption: 'Work Detail' },
+        { src: 'images/templates/ecru/about.jpg', alt: 'The About page with a portrait and a short profile', caption: 'About' },
+      ],
+      mobile: [
+        { src: 'images/templates/ecru/m-hero.jpg', alt: 'The top page on a smartphone' },
+        { src: 'images/templates/ecru/m-works.jpg', alt: 'The Works page on a smartphone' },
+        { src: 'images/templates/ecru/m-detail.jpg', alt: 'A work detail page on a smartphone' },
+      ],
+      includes: [
+        'HTML / CSS / JavaScript files (no build step, no external libraries)',
+        'Data files for replacing text, photos and works',
+        'A guide to customizing the template (README in English and Japanese)',
+        'Desktop and smartphone support / reduced-motion support',
+      ],
+      specs: [
+        { label: 'Pages', value: '5 pages' },
+        { label: 'Pages list', value: 'Home / Works / Work Detail / About / Contact' },
+        { label: 'Built with', value: 'HTML, CSS, JavaScript' },
+        { label: 'Tone', value: 'Warm white / Grey' },
+      ],
+    },
+  },
+  {
+    slug: '',
+    no: '03',
     status: 'soon',
     title: 'In preparation',
     use: 'Next template',

@@ -77,6 +77,11 @@
     const t = templates.find((x) => x.slug === body.dataset.template);
     if (!t) { mount.innerHTML = `<p class="detail-missing">${TEXT.missing}</p>`; return; }
 
+    // 公開URLがまだないテンプレートは Live Preview を出さない
+    const preview = t.previewUrl
+      ? `<a class="link-line" href="${esc(t.previewUrl)}" target="_blank" rel="noopener">Live Preview ↗</a>`
+      : '';
+
     const purchase = t.purchaseUrl
       ? `<a class="btn" href="${esc(t.purchaseUrl)}" target="_blank" rel="noopener">${TEXT.purchase}</a>`
       : `<span class="btn is-disabled" aria-disabled="true">${TEXT.purchaseSoon}</span>`;
@@ -96,7 +101,7 @@
           <p class="detail-price">${esc(t.price)}${t.priceNote ? `<small>${esc(t.priceNote)}</small>` : ''}</p>
           <div class="detail-actions">
             ${purchase}
-            <a class="link-line" href="${esc(t.previewUrl)}" target="_blank" rel="noopener">Live Preview ↗</a>
+            ${preview}
           </div>
         </aside>
       </section>
@@ -147,7 +152,7 @@
           <p class="detail-price">${esc(t.price)}${t.priceNote ? `<small>${esc(t.priceNote)}</small>` : ''}</p>
           <div class="detail-actions">
             ${purchase}
-            <a class="link-line" href="${esc(t.previewUrl)}" target="_blank" rel="noopener">Live Preview ↗</a>
+            ${preview}
           </div>
         </div>
         <div class="detail-build reveal" data-delay="1">

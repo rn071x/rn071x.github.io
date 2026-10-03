@@ -37,4 +37,16 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/ecru/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/ecru/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/plate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/plate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/plate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/plate/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/ja/templates/plate/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/plate/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/plate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/plate/"/>
+  </url>
 </urlset>

@@ -6,9 +6,9 @@
   const body = document.body;
   const base = body.dataset.base || '';   // 画像やデータへのパス(サイトのルートまで)
   const home = body.dataset.home || '';   // リンク先へのパス(その言語のトップまで)
-  const lang = document.documentElement.lang === 'en' ? 'en' : 'ja';
-  // 英語版では、各テンプレートの en の中身で日本語の項目を上書きする
-  const templates = (window.TRACE_TEMPLATES || []).map((t) => (lang === 'en' && t.en ? { ...t, ...t.en } : t));
+  const lang = document.documentElement.lang === 'ja' ? 'ja' : 'en';
+  // 英語が基本。日本語版(/ja/)では、各テンプレートの ja の中身で項目を上書きする
+  const templates = (window.TRACE_TEMPLATES || []).map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // スクリプトが描画する文言

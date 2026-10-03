@@ -3,8 +3,8 @@
    TRACE — 商品の構造化データ(JSON-LD)とサイトマップを生成する
    ----------------------------------------------------------
    data/templates.js を読み、
-   ・各テンプレートの詳細ページ(templates/<slug>/index.html と en/templates/<slug>/index.html)の
-     <head> に、Google の Product 構造化データと canonical を書き込む
+   ・各テンプレートの詳細ページ(英語 templates/<slug>/ と日本語 ja/templates/<slug>/)の
+     <head> に、Google の Product 構造化データ・canonical・hreflang を書き込む
    ・sitemap.xml(日本語版・英語版の対応関係つき)を書き出す
 
    使い方:
@@ -23,10 +23,12 @@ const vm = require('vm');
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://tracebymori.com';
 const BRAND = 'TRACE';
+// 英語がメイン(ルート)、日本語がサブ(/ja/)
 const LANGS = [
-  { lang: 'ja', dir: '' },
-  { lang: 'en', dir: 'en/' },
+  { lang: 'en', dir: '' },
+  { lang: 'ja', dir: 'ja/' },
 ];
+const DEFAULT_DIR = '';
 const CURRENCIES = { $: 'USD', '¥': 'JPY', '€': 'EUR', '£': 'GBP' };
 const START = '<!-- structured-data:start (tools/build-structured-data.js で自動生成。手で編集しない) -->';
 const END = '<!-- structured-data:end -->';
@@ -84,8 +86,14 @@ function buildProduct(t, pageUrl, lang) {
   };
 }
 
-function buildBlock(product, pageUrl) {
-  const lines = [START, `<link rel="canonical" href="${pageUrl}">`];
+// 同じページの各言語版と、既定(英語)を示す
+const hreflang = (p) => [
+  ...LANGS.map(({ lang, dir }) => `<link rel="alternate" hreflang="${lang}" href="${SITE}/${dir}${p}">`),
+  `<link rel="alternate" hreflang="x-default" href="${SITE}/${DEFAULT_DIR}${p}">`,
+];
+
+function buildBlock(product, pageUrl, p) {
+  const lines = [START, `<link rel="canonical" href="${pageUrl}">`, ...hreflang(p)];
   if (product) {
     // "</script>" で途切れないように "<" をエスケープする
     const json = JSON.stringify(product, null, 2).replace(/</g, '\\u003c');
@@ -116,7 +124,8 @@ function buildSitemap(paths) {
   const entry = (p) => {
     const alternates = LANGS.map(({ lang, dir }) =>
       `    <xhtml:link rel="alternate" hreflang="${lang}" href="${SITE}/${dir}${p}"/>`).join('\n');
-    return LANGS.map(({ dir }) => `  <url>\n    <loc>${SITE}/${dir}${p}</loc>\n${alternates}\n  </url>`).join('\n');
+    const def = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${DEFAULT_DIR}${p}"/>`;
+    return LANGS.map(({ dir }) => `  <url>\n    <loc>${SITE}/${dir}${p}</loc>\n${alternates}\n${def}\n  </url>`).join('\n');
   };
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -139,11 +148,11 @@ function writeFile(rel, content) {
 /* ---------- 実行 ---------- */
 const templates = loadTemplates();
 const changed = [];
-const sitemapPaths = [''];  // トップページ(日本語版 / と英語版 /en/)
+const sitemapPaths = [''];  // トップページ(英語版 / と日本語版 /ja/)
 
 templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
   LANGS.forEach(({ lang, dir }) => {
-    const t = lang === 'en' && base.en ? { ...base, ...base.en } : base;
+    const t = lang === 'ja' && base.ja ? { ...base, ...base.ja } : base;
     const rel = `${dir}templates/${t.slug}/index.html`;
     const file = path.join(ROOT, rel);
     const pageUrl = `${SITE}/${dir}templates/${t.slug}/`;
@@ -152,10 +161,10 @@ templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
       warnings.push(`${rel} がありません(詳細ページのフォルダを作ってください)`);
       return;
     }
-    if (lang === 'ja') sitemapPaths.push(`templates/${t.slug}/`);
+    if (lang === 'en') sitemapPaths.push(`templates/${t.slug}/`);
     const product = buildProduct(t, pageUrl, lang);
     if (!product) warnings.push(`${t.slug}: 価格 "${t.price}" を読み取れないため、Product は出力しません(canonical のみ)`);
-    if (writeBlock(file, buildBlock(product, pageUrl))) changed.push(rel);
+    if (writeBlock(file, buildBlock(product, pageUrl, `templates/${t.slug}/`))) changed.push(rel);
   });
 });
 

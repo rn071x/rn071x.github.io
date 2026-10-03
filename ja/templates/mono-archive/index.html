@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MONO ARCHIVE — TRACE</title>
-<meta name="description" content="MONO ARCHIVE — A portfolio website template for photographers.">
+<meta name="description" content="MONO ARCHIVE — 写真家向けのポートフォリオWebテンプレート。">
 <script>
+  // 動きの準備ができるまで要素を隠す。script.js が読めなかったときは、隠すのをやめて普通に表示する
   document.documentElement.classList.add('js');
   setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=10">
+<link rel="stylesheet" href="../../../style.css?v=10">
 <!-- structured-data:start (tools/build-structured-data.js で自動生成。手で編集しない) -->
-<link rel="canonical" href="https://tracebymori.com/templates/mono-archive/">
+<link rel="canonical" href="https://tracebymori.com/ja/templates/mono-archive/">
 <link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/mono-archive/">
 <link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/mono-archive/">
 <link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/mono-archive/">
@@ -22,15 +23,15 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://tracebymori.com/templates/mono-archive/#product",
+  "@id": "https://tracebymori.com/ja/templates/mono-archive/#product",
   "name": "MONO ARCHIVE",
-  "description": "A one-page portfolio template for photographers. It includes selected works, a horizontal gallery, a profile, a year-by-year archive and a contact section. It also works on smartphones.",
+  "description": "写真家向けの、1ページ構成のポートフォリオテンプレートです。代表作、横スクロールのギャラリー、プロフィール、年ごとのアーカイブ、お問い合わせを備えています。スマートフォンにも対応しています。",
   "image": [
     "https://tracebymori.com/images/templates/mono-archive/hero.jpg",
     "https://tracebymori.com/images/templates/mono-archive/product-4x3.jpg",
     "https://tracebymori.com/images/templates/mono-archive/product-1x1.jpg"
   ],
-  "url": "https://tracebymori.com/templates/mono-archive/",
+  "url": "https://tracebymori.com/ja/templates/mono-archive/",
   "sku": "TRACE-MONO-ARCHIVE",
   "brand": {
     "@type": "Brand",
@@ -38,7 +39,7 @@
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://tracebymori.com/templates/mono-archive/",
+    "url": "https://tracebymori.com/ja/templates/mono-archive/",
     "price": "59.00",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
@@ -54,24 +55,24 @@
 <!-- structured-data:end -->
 </head>
 <!--
-  Template detail page (English, main). Content comes from data/templates.js.
-  When adding a template, copy this folder and change <title>, description and data-template.
+  テンプレート詳細ページ。中身は data/templates.js の slug が data-template と一致するものから描画される。
+  新しいテンプレートを追加するときは、このフォルダを複製して <title>・description・data-template を書き換える。
 -->
-<body class="page-detail" data-base="../../" data-home="../../" data-template="mono-archive">
+<body class="page-detail" data-base="../../../" data-home="../../" data-template="mono-archive">
 
 <header class="site-header">
   <div class="header-inner">
     <a href="../../" class="logo">TRACE</a>
 
-    <nav class="nav" id="nav" aria-label="Main navigation">
+    <nav class="nav" id="nav" aria-label="メインナビゲーション">
       <a href="../../#templates">Templates</a>
       <a href="../../#services">Services</a>
       <a href="../../#about">About</a>
       <a href="../../#contact">Contact</a>
-      <a class="nav-lang" href="../../ja/templates/mono-archive/" hreflang="ja" lang="ja">JA</a>
+      <a class="nav-lang" href="../../../templates/mono-archive/" hreflang="en" lang="en">EN</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
       <span></span>
       <span></span>
     </button>
@@ -85,8 +86,8 @@
   <span class="footer-copy">&copy; 2026 TRACE</span>
 </footer>
 
-<script src="../../data/templates.js?v=10"></script>
-<script src="../../script.js?v=10"></script>
+<script src="../../../data/templates.js?v=10"></script>
+<script src="../../../script.js?v=10"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cf12b9aeffe4a7aa56cfffbe704f1f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -3,32 +3,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tracebymori.com/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/"/>
   </url>
   <url>
-    <loc>https://tracebymori.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/"/>
+    <loc>https://tracebymori.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/"/>
   </url>
   <url>
     <loc>https://tracebymori.com/templates/mono-archive/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/mono-archive/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/mono-archive/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/mono-archive/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/mono-archive/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/mono-archive/"/>
   </url>
   <url>
-    <loc>https://tracebymori.com/en/templates/mono-archive/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/mono-archive/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/mono-archive/"/>
+    <loc>https://tracebymori.com/ja/templates/mono-archive/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/mono-archive/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/mono-archive/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/mono-archive/"/>
   </url>
   <url>
     <loc>https://tracebymori.com/templates/ecru/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/ecru/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/ecru/"/>
   </url>
   <url>
-    <loc>https://tracebymori.com/en/templates/ecru/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/templates/ecru/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/en/templates/ecru/"/>
+    <loc>https://tracebymori.com/ja/templates/ecru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/ecru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/ecru/"/>
   </url>
 </urlset>

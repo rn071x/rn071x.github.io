@@ -208,8 +208,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A one-page portfolio that shows one photo at a time on a plain white page. Edit one file to make it yours.',
     price: '$29',
     priceNote: 'License for one website',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_CETKxkBvMuJSpmwymf1tEaQileBr2lqUBMgpI1qiRFy',
+    previewUrl: 'https://plate.rn071-work.workers.dev/',
     cover: 'images/templates/plate/hero.jpg',
     productImages: [
       'images/templates/plate/product-4x3.jpg',

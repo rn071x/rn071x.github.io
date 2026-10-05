@@ -297,8 +297,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A five-page site that presents an independent creator as a small studio — with work, services and a way to get in touch.',
     price: '$59',
     priceNote: 'License for one website',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_ooh3MCtSDUKs8faZv6nLqqvxlQgx4qDdYehSI1QiuJb',
+    previewUrl: 'https://studio.rn071-work.workers.dev/',
     cover: 'images/templates/studio/hero.jpg',
     productImages: [
       'images/templates/studio/product-4x3.jpg',

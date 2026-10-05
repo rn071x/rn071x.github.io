@@ -49,4 +49,16 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/plate/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/plate/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/studio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/studio/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/ja/templates/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/studio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/studio/"/>
+  </url>
 </urlset>

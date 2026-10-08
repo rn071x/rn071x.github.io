@@ -522,7 +522,7 @@ window.TRACE_TEMPLATES = [
     summary: 'A portfolio built like a quiet gallery — framed photos on dark walls, and works that move sideways as you scroll.',
     price: '$129',
     priceNote: 'License for one website',
-    purchaseUrl: 'https://buy.polar.sh/polar_cl_PaSKSwSYNNgVGHRcfczVqZUaGgKY0NUkNaFgZ21ZHeU',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_IBbiibfUw80UE3fnRgMs6AZIEjztSegx7f3g00piZrv',
     previewUrl: 'https://still.rn071-work.workers.dev/',
     cover: 'images/templates/still/hero.jpg',
     productImages: [

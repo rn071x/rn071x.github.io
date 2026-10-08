@@ -12,7 +12,9 @@
    3. 画像を images/templates/<slug>/ に置く
    画像パスはサイトのルートからの相対パスで書く。
    tier は価格帯(下の TRACE_TIERS の id)。一覧はこの価格帯ごとに分けて表示する。
-   price は Polar の価格と合わせる(価格帯の price と同じにする。無料は 'Free')。purchaseUrl は Polar のチェックアウトリンク、
+   price は Polar の価格と合わせる(価格帯の price と同じにする。無料は 'Free')。
+   日本語版だけ別の価格(円)にするときは、ja の中に price を書く(例:Signature は ja.price '¥19,800')。
+   purchaseUrl は Polar のチェックアウトリンク、
    previewUrl は公開URL(空なら Live Preview を出さない)。
    データを変えたら、最後に次のコマンドで構造化データ(JSON-LD)と sitemap.xml を更新する:
      node tools/build-structured-data.js
@@ -25,7 +27,7 @@ window.TRACE_TIERS = [
     name: 'Signature',
     price: '$129',
     note: 'Multi-page templates with a clear world and careful motion.',
-    ja: { note: '世界観と動きまで作り込んだ、複数ページのテンプレート。' },
+    ja: { price: '¥19,800', note: '世界観と動きまで作り込んだ、複数ページのテンプレート。' },
   },
   {
     id: 'essential',
@@ -97,6 +99,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Tone', value: 'Monochrome' },
     ],
     ja: {
+      price: '¥19,800',
       useJa: '写真家のポートフォリオ',
       summary: '写真家向けのポートフォリオテンプレート。白と黒を基調に、スクロールに合わせて画面が切り替わります。',
       priceNote: '1サイト分のライセンス',
@@ -370,6 +373,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Form', value: 'Email app, or Formspree and similar' },
     ],
     ja: {
+      price: '¥19,800',
       useJa: '小さなスタジオのポートフォリオ兼ビジネスサイト',
       summary: 'ひとりのクリエイターを「小さなスタジオ」として見せる、5ページのサイト。作品・サービス・問い合わせまでそろっています。',
       priceNote: '1サイト分のライセンス',
@@ -465,6 +469,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Form', value: 'Email app, or Formspree and similar' },
     ],
     ja: {
+      price: '¥19,800',
       useJa: '写真家・ビジュアルアーティストのポートフォリオ',
       summary: '静かな夜の世界観のポートフォリオ。大きな写真、大きなセリフ体のタイトル、ゆっくりと没入できる動き。',
       priceNote: '1サイト分のライセンス',
@@ -517,7 +522,7 @@ window.TRACE_TEMPLATES = [
     summary: 'A portfolio built like a quiet gallery — framed photos on dark walls, and works that move sideways as you scroll.',
     price: '$129',
     priceNote: 'License for one website',
-    purchaseUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_PaSKSwSYNNgVGHRcfczVqZUaGgKY0NUkNaFgZ21ZHeU',
     previewUrl: 'https://still.rn071-work.workers.dev/',
     cover: 'images/templates/still/hero.jpg',
     productImages: [
@@ -561,6 +566,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Form', value: 'Email app, or Formspree and similar' },
     ],
     ja: {
+      price: '¥19,800',
       useJa: '写真家・アーティストのためのギャラリー型ポートフォリオ',
       summary: '静かなギャラリーのようなポートフォリオ。暗い壁に額装した写真が掛かり、スクロールすると作品が横に流れます。',
       priceNote: '1サイト分のライセンス',

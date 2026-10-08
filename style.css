@@ -486,6 +486,128 @@ a.media:focus-visible img {
 .exhibit--c .exhibit-media { grid-column: 2 / 8; }
 .exhibit--c .exhibit-info { grid-column: 9 / 12; align-self: center; }
 
+/* ==========================================================
+   価格帯 — Signature / Essential / Free ごとに区切る
+   ========================================================== */
+.tier-nav {
+  max-width: var(--max-width);
+  margin: -40px auto 140px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.tier-nav a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  row-gap: 4px;
+  padding: 18px 22px 20px;
+  transition: background 0.5s var(--ease);
+}
+
+.tier-nav a + a {
+  border-left: 1px solid var(--line);
+}
+
+.tier-nav a:hover {
+  background: var(--bg-deep);
+}
+
+.tier-nav-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  transition: color 0.5s var(--ease);
+}
+
+.tier-nav a:hover .tier-nav-name {
+  color: var(--bordeaux);
+}
+
+.tier-nav-price {
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.tier-nav-count {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.tier {
+  scroll-margin-top: 90px;
+}
+
+.tier + .tier {
+  margin-top: 60px;
+}
+
+.tier-head {
+  max-width: var(--max-width);
+  margin: 0 auto 130px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 32px;
+  row-gap: 10px;
+  align-items: baseline;
+  padding-top: 22px;
+  border-top: 1px solid var(--bordeaux-soft);
+}
+
+.tier-name {
+  grid-column: 1 / 6;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 1.1;
+}
+
+.tier-price {
+  grid-column: 6 / 9;
+  font-family: var(--serif);
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  color: var(--bordeaux);
+}
+
+.tier-note {
+  grid-column: 9 / 13;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.tier-count {
+  grid-column: 9 / 13;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.tier--rest {
+  margin-top: 60px;
+}
+
+/* 詳細ページ:番号の横に価格帯 */
+.detail-tier {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+  font-style: italic;
+  color: var(--ink-soft);
+  transition: color 0.4s var(--ease);
+}
+
+.detail-tier:hover {
+  color: var(--bordeaux);
+}
+
 /* 準備中:小さく、少し沈ませる */
 .exhibit.is-soon .exhibit-media {
   grid-column: 6 / 10;
@@ -1161,6 +1283,15 @@ a.media:focus-visible img {
     padding: 0;
   }
 
+  .tier-head {
+    grid-template-columns: 1fr auto;
+    margin-bottom: 80px;
+  }
+
+  .tier-name { grid-column: 1; font-size: 38px; }
+  .tier-price { grid-column: 2; }
+  .tier-note, .tier-count { grid-column: 1 / -1; }
+
   .exhibit--b .exhibit-media { margin-left: 10%; }
   .exhibit--c .exhibit-media { margin-right: 12%; }
   .exhibit.is-soon .exhibit-media { width: 62%; margin-left: 24%; }
@@ -1241,6 +1372,20 @@ a.media:focus-visible img {
   section,
   .interlude {
     padding: 112px var(--gutter);
+  }
+
+  .tier-nav {
+    grid-template-columns: 1fr;
+    margin: -16px auto 90px;
+  }
+
+  .tier-nav a + a {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .tier-nav a {
+    padding: 14px 4px 16px;
   }
 
   .section-head {

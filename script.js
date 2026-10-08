@@ -9,6 +9,11 @@
   const lang = document.documentElement.lang === 'ja' ? 'ja' : 'en';
   // 英語が基本。日本語版(/ja/)では、各テンプレートの ja の中身で項目を上書きする
   const templates = (window.TRACE_TEMPLATES || []).map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
+  // 価格帯(Signature / Essential / Free)。一覧はこの順に、価格帯ごとに分けて並べる
+  const tiers = (window.TRACE_TIERS || []).map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
+  const tierOf = (t) => tiers.find((x) => x.id === t.tier);
+  // 「Free」のように、名前と価格が同じ価格帯は価格を重ねて出さない
+  const samePrice = (tier) => String(tier.price).toLowerCase() === String(tier.name).toLowerCase();
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // スクリプトが描画する文言
@@ -16,8 +21,11 @@
     ja: {
       details: '詳細を見る',
       purchase: 'Purchase',
+      download: '無料でダウンロード',
       purchaseSoon: 'Purchase — Coming soon',
       crumb: 'パンくずリスト',
+      count: (n) => `${n}点`,
+      tiersLabel: '価格帯',
       build: 'このテンプレートをもとにしたサイト制作も承ります。',
       contact: 'メールで問い合わせる',
       subject: (title) => `【${title}】サイト制作のご相談`,
@@ -26,8 +34,11 @@
     en: {
       details: 'View details',
       purchase: 'Purchase',
+      download: 'Download for free',
       purchaseSoon: 'Purchase — Coming soon',
       crumb: 'Breadcrumb',
+      count: (n) => `${n} ${n === 1 ? 'template' : 'templates'}`,
+      tiersLabel: 'Price tiers',
       build: 'TRACE can also build your site based on this template.',
       contact: 'Contact by email',
       subject: (title) => `[${title}] Website build inquiry`,
@@ -45,14 +56,11 @@
   const VARIANTS = ['a', 'b', 'c'];
   const DRIFTS = [0.03, -0.025, 0.04];
 
-  function renderExhibits() {
-    const mount = document.querySelector('[data-render="templates"]');
-    if (!mount) return;
-    mount.innerHTML = templates.map((t, i) => {
-      const soon = t.status === 'soon';
-      const href = soon ? '' : `${home}templates/${t.slug}/`;
-      const media = `<img src="${esc(src(t.cover))}" alt="${esc(t.coverAlt)}" loading="lazy">`;
-      return `
+  const exhibit = (t, i) => {
+    const soon = t.status === 'soon';
+    const href = soon ? '' : `${home}templates/${t.slug}/`;
+    const media = `<img src="${esc(src(t.cover))}" alt="${esc(t.coverAlt)}" loading="lazy">`;
+    return `
       <article class="exhibit exhibit--${VARIANTS[i % VARIANTS.length]}${soon ? ' is-soon' : ''}">
         ${soon
           ? `<div class="exhibit-media media" data-drift="${DRIFTS[i % DRIFTS.length]}">${media}</div>`
@@ -67,7 +75,32 @@
           <a class="link-line reveal" data-delay="3" href="${href}">${TEXT.details}</a>`}
         </div>
       </article>`;
-    }).join('');
+  };
+
+  function renderExhibits() {
+    const mount = document.querySelector('[data-render="templates"]');
+    if (!mount) return;
+    // 価格帯ごとにまとめる。価格帯のないもの(準備中など)は最後に
+    const groups = tiers
+      .map((tier) => ({ tier, items: templates.filter((t) => t.tier === tier.id && t.status !== 'soon') }))
+      .filter((g) => g.items.length);
+    const rest = templates.filter((t) => t.status === 'soon' || !tierOf(t));
+    mount.innerHTML = `
+      <nav class="tier-nav reveal" aria-label="${TEXT.tiersLabel}">
+        ${groups.map((g) => `
+        <a href="#tier-${g.tier.id}"><span class="tier-nav-name">${esc(g.tier.name)}</span><span class="tier-nav-price">${samePrice(g.tier) ? '' : esc(g.tier.price)}</span><span class="tier-nav-count">${TEXT.count(g.items.length)}</span></a>`).join('')}
+      </nav>
+      ${groups.map((g) => `
+      <div class="tier" id="tier-${g.tier.id}" role="region" aria-labelledby="tier-${g.tier.id}-name">
+        <header class="tier-head">
+          <h3 class="tier-name reveal" id="tier-${g.tier.id}-name">${esc(g.tier.name)}</h3>
+          <p class="tier-price reveal" data-delay="1">${samePrice(g.tier) ? '' : esc(g.tier.price)}</p>
+          <p class="tier-note reveal" data-delay="1">${esc(g.tier.note)}</p>
+          <p class="tier-count reveal" data-delay="2">${TEXT.count(g.items.length)}</p>
+        </header>
+        ${g.items.map(exhibit).join('')}
+      </div>`).join('')}
+      ${rest.length ? `<div class="tier tier--rest">${rest.map(exhibit).join('')}</div>` : ''}`;
   }
 
   /* ---------- テンプレート詳細ページ ---------- */
@@ -82,15 +115,17 @@
       ? `<a class="link-line" href="${esc(t.previewUrl)}" target="_blank" rel="noopener">Live Preview ↗</a>`
       : '';
 
+    const tier = tierOf(t);
+    const free = t.tier === 'free';
     const purchase = t.purchaseUrl
-      ? `<a class="btn" href="${esc(t.purchaseUrl)}" target="_blank" rel="noopener">${TEXT.purchase}</a>`
+      ? `<a class="btn" href="${esc(t.purchaseUrl)}" target="_blank" rel="noopener">${free ? TEXT.download : TEXT.purchase}</a>`
       : `<span class="btn is-disabled" aria-disabled="true">${TEXT.purchaseSoon}</span>`;
 
     mount.innerHTML = `
       <section class="detail-hero">
         <nav class="crumb reveal" aria-label="${TEXT.crumb}"><a href="${home}#templates">Templates</a><span>/</span>${esc(t.title)}</nav>
         <div class="detail-head">
-          <p class="exhibit-no reveal">No. ${esc(t.no)}</p>
+          <p class="exhibit-no reveal">No. ${esc(t.no)}${tier ? `<a class="detail-tier" href="${home}#tier-${tier.id}">${esc(tier.name)}</a>` : ''}</p>
           <h1 class="detail-title reveal" data-delay="1">${esc(t.title)}</h1>
           <p class="exhibit-use reveal" data-delay="2">${esc(t.use)}${t.useJa ? `<span>${esc(t.useJa)}</span>` : ''}</p>
         </div>

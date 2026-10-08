@@ -11,22 +11,49 @@
       (中の index.html の <title>・description・data-template を書き換える)
    3. 画像を images/templates/<slug>/ に置く
    画像パスはサイトのルートからの相対パスで書く。
-   price は Polar の価格と合わせる。purchaseUrl は Polar のチェックアウトリンク、
+   tier は価格帯(下の TRACE_TIERS の id)。一覧はこの価格帯ごとに分けて表示する。
+   price は Polar の価格と合わせる(価格帯の price と同じにする。無料は 'Free')。purchaseUrl は Polar のチェックアウトリンク、
    previewUrl は公開URL(空なら Live Preview を出さない)。
    データを変えたら、最後に次のコマンドで構造化データ(JSON-LD)と sitemap.xml を更新する:
      node tools/build-structured-data.js
    ========================================================== */
 
+// 価格帯 / Price tiers — テンプレート一覧はこの順番で、価格帯ごとに分けて表示する
+window.TRACE_TIERS = [
+  {
+    id: 'signature',
+    name: 'Signature',
+    price: '$129',
+    note: 'Multi-page templates with a clear world and careful motion.',
+    ja: { note: '世界観と動きまで作り込んだ、複数ページのテンプレート。' },
+  },
+  {
+    id: 'essential',
+    name: 'Essential',
+    price: '$29',
+    note: 'Simple, quiet templates that are quick to set up.',
+    ja: { note: 'すぐに使える、シンプルで静かなテンプレート。' },
+  },
+  {
+    id: 'free',
+    name: 'Free',
+    price: 'Free',
+    note: 'A one-page template to try first, free to use.',
+    ja: { note: 'まず試せる、無料の1ページテンプレート。' },
+  },
+];
+
 window.TRACE_TEMPLATES = [
   {
     slug: 'mono-archive',
+    tier: 'signature',
     no: '01',
     status: 'available',
     title: 'MONO ARCHIVE',
     use: 'Photographer Portfolio',
     useJa: '',
     summary: 'A portfolio template for photographers. Black and white, with sections that shift as you scroll.',
-    price: '$59',
+    price: '$129',
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_lFFFEtLeRZizXNFzRkh97l4e1JDdkEgtJagMi2vw36B',
     previewUrl: 'https://mono-archive.rn071-work.workers.dev/',
@@ -111,13 +138,14 @@ window.TRACE_TEMPLATES = [
   },
   {
     slug: 'ecru',
+    tier: 'essential',
     no: '02',
     status: 'available',
     title: 'ÉCRU',
     use: 'Creator Portfolio',
     useJa: '',
     summary: 'A portfolio template for independent creators. Generous space and clean type keep the focus on the work.',
-    price: '$39',
+    price: '$29',
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_sP2AdDAHApajl9JwY95p5dLKAMwf1EKXrvrZn1Uhm8g',
     previewUrl: 'https://ecru.rn071-work.workers.dev/',
@@ -200,14 +228,15 @@ window.TRACE_TEMPLATES = [
   },
   {
     slug: 'plate',
+    tier: 'free',
     no: '03',
     status: 'available',
     title: 'PLATE',
     use: 'Single-Photo Portfolio',
     useJa: '',
     summary: 'A one-page portfolio that shows one photo at a time on a plain white page. Edit one file to make it yours.',
-    price: '$29',
-    priceNote: 'License for one website',
+    price: 'Free',
+    priceNote: 'Free for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_CETKxkBvMuJSpmwymf1tEaQileBr2lqUBMgpI1qiRFy',
     previewUrl: 'https://plate.rn071-work.workers.dev/',
     cover: 'images/templates/plate/hero.jpg',
@@ -251,7 +280,7 @@ window.TRACE_TEMPLATES = [
     ja: {
       useJa: '写真を1枚ずつ見せるポートフォリオ',
       summary: '白いページに写真を1枚ずつ見せる、1ページのポートフォリオ。編集するのはファイル1つだけです。',
-      priceNote: '1サイト分のライセンス',
+      priceNote: '1サイトに無料で使えます',
       coverAlt: 'PLATEの画面。白いページの中央に建築写真が1枚あり、名前・ページ番号・メールが小さく並ぶ',
       description: [
         '写真家、アーティスト、建築家、デザイナーなど、作品だけを見せたい人のための1ページのポートフォリオテンプレートです。',
@@ -289,13 +318,14 @@ window.TRACE_TEMPLATES = [
   },
   {
     slug: 'studio',
+    tier: 'signature',
     no: '04',
     status: 'available',
     title: 'STUDIO',
     use: 'Studio Portfolio & Business',
     useJa: '',
     summary: 'A five-page site that presents an independent creator as a small studio — with work, services and a way to get in touch.',
-    price: '$59',
+    price: '$129',
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_ooh3MCtSDUKs8faZv6nLqqvxlQgx4qDdYehSI1QiuJb',
     previewUrl: 'https://studio.rn071-work.workers.dev/',
@@ -382,13 +412,14 @@ window.TRACE_TEMPLATES = [
   },
   {
     slug: 'nocturne',
+    tier: 'signature',
     no: '05',
     status: 'available',
     title: 'NOCTURNE',
     use: 'Photographer & Visual Artist Portfolio',
     useJa: '',
     summary: 'A portfolio set in a quiet night world — large photos, a huge serif title and slow, immersive motion.',
-    price: '$69',
+    price: '$129',
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_PaSKSwSYNNgVGHRcfczVqZUaGgKY0NUkNaFgZ21ZHeU',
     previewUrl: 'https://nocturne.rn071-work.workers.dev/',
@@ -477,13 +508,14 @@ window.TRACE_TEMPLATES = [
   },
   {
     slug: 'still',
+    tier: 'signature',
     no: '06',
     status: 'available',
     title: 'STILL',
     use: 'Gallery Portfolio for Photographers & Artists',
     useJa: '',
     summary: 'A portfolio built like a quiet gallery — framed photos on dark walls, and works that move sideways as you scroll.',
-    price: '$69',
+    price: '$129',
     priceNote: 'License for one website',
     purchaseUrl: '',
     previewUrl: '',

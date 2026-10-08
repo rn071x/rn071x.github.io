@@ -44,8 +44,9 @@ function loadTemplates() {
   return sandbox.window.TRACE_TEMPLATES || [];
 }
 
-// '$59' や '¥9,800' を { price: '59.00', currency: 'USD' } にする。読めなければ null
+// '$59' や '¥9,800' を { price: '59.00', currency: 'USD' } にする。'Free' は 0 ドル。読めなければ null
 function parsePrice(text) {
+  if (/^free$/i.test(String(text || '').trim())) return { price: '0.00', currency: 'USD' };
   const m = String(text || '').trim().match(/^([$¥€£])\s*([\d,]+(?:\.\d+)?)$/);
   if (!m) return null;
   const currency = CURRENCIES[m[1]];

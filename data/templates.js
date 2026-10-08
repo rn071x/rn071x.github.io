@@ -602,20 +602,4 @@ window.TRACE_TEMPLATES = [
       ],
     },
   },
-  {
-    slug: '',
-    no: '07',
-    status: 'soon',
-    title: 'In preparation',
-    use: 'Next template',
-    useJa: '',
-    summary: 'The next template is in progress.',
-    cover: 'images/brand/10.jpg',
-    coverAlt: 'Red maple leaves in front of a dark rock face',
-    ja: {
-      useJa: '次のテンプレート',
-      summary: '次のテンプレートを準備中です。',
-      coverAlt: '暗い岩肌の前で色づく紅葉',
-    },
-  },
 ];

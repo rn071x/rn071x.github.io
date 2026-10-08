@@ -518,7 +518,7 @@ window.TRACE_TEMPLATES = [
     price: '$129',
     priceNote: 'License for one website',
     purchaseUrl: '',
-    previewUrl: '',
+    previewUrl: 'https://still.rn071-work.workers.dev/',
     cover: 'images/templates/still/hero.jpg',
     productImages: [
       'images/templates/still/product-4x3.jpg',

@@ -73,4 +73,16 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/nocturne/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/nocturne/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/still/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/still/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/still/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/still/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/ja/templates/still/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/still/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/still/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/still/"/>
+  </url>
 </urlset>

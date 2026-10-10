@@ -620,8 +620,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A simple, quiet portfolio. White pages, large photos, and work shown in series.',
     price: '$29',
     priceNote: 'License for one website',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_HmYzIZYefbUx6le1oYp93ZVesfyG1NeIByYSP0sK0Rh',
+    previewUrl: 'https://plain.rn071-work.workers.dev/',
     cover: 'images/templates/plain/hero.jpg',
     productImages: [
       'images/templates/plain/product-4x3.jpg',

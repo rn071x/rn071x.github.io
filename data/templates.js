@@ -13,7 +13,7 @@
    画像パスはサイトのルートからの相対パスで書く。
    tier は価格帯(下の TRACE_TIERS の id)。一覧はこの価格帯ごとに分けて表示する。
    price は Polar の価格と合わせる(価格帯の price と同じにする。無料は 'Free')。
-   日本語版だけ別の価格(円)にするときは、ja の中に price を書く(例:Signature は ja.price '¥19,800')。
+   日本語版だけ別の価格(円)にするときは、ja の中に price を書く(例:Signature は ja.price '¥19,800'、Essential は '¥4,800')。
    purchaseUrl は Polar のチェックアウトリンク、
    previewUrl は公開URL(空なら Live Preview を出さない)。
    データを変えたら、最後に次のコマンドで構造化データ(JSON-LD)と sitemap.xml を更新する:
@@ -34,7 +34,7 @@ window.TRACE_TIERS = [
     name: 'Essential',
     price: '$29',
     note: 'Simple, quiet templates that are quick to set up.',
-    ja: { note: 'すぐに使える、シンプルで静かなテンプレート。' },
+    ja: { price: '¥4,800', note: 'すぐに使える、シンプルで静かなテンプレート。' },
   },
   {
     id: 'free',
@@ -191,6 +191,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Tone', value: 'Warm white / Grey' },
     ],
     ja: {
+      price: '¥4,800',
       useJa: 'クリエイターのポートフォリオ',
       summary: '個人クリエイター向けのポートフォリオテンプレート。余白と端正な文字で、作品を静かに見せます。',
       priceNote: '1サイト分のライセンス',
@@ -663,6 +664,7 @@ window.TRACE_TEMPLATES = [
       { label: 'Form', value: 'Email app, or Formspree and similar' },
     ],
     ja: {
+      price: '¥4,800',
       useJa: '写真家のためのシンプルなポートフォリオ',
       summary: 'シンプルで静かなポートフォリオ。白いページに大きな写真、作品はシリーズごとに。',
       priceNote: '1サイト分のライセンス',

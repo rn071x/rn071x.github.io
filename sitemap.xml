@@ -97,4 +97,16 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/plain/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/plain/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/hearth/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/hearth/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/hearth/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/hearth/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/ja/templates/hearth/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/hearth/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/hearth/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/hearth/"/>
+  </url>
 </urlset>

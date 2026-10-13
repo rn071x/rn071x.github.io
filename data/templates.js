@@ -812,8 +812,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A one-page link page for photographers — the page in your Instagram bio. One large photo with its camera notes, your status and your links.',
     price: '$29',
     priceNote: 'License for one website',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_D2uPJAwAGW7UUx4kLcPhe0VmFBuKBKTcIe5Ty2C7q5V',
+    previewUrl: 'https://loupe.rn071-work.workers.dev/',
     cover: 'images/templates/loupe/hero.jpg',
     productImages: [
       'images/templates/loupe/product-4x3.jpg',

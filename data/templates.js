@@ -717,8 +717,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A quiet one-page website for a shop you run on your own. Your menu as a column of photos, with opening hours and reservations done for you.',
     price: '$29',
     priceNote: 'License for one website',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_kctuBV7ejzI4da8MWPbOzU9j3ZVfqLO04Lze90tM85L',
+    previewUrl: 'https://hearth.rn071-work.workers.dev/',
     cover: 'images/templates/hearth/hero.jpg',
     productImages: [
       'images/templates/hearth/product-4x3.jpg',

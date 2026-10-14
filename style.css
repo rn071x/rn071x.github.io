@@ -507,8 +507,38 @@ a.media:focus-visible img {
   transition: background 0.5s var(--ease);
 }
 
-.tier-nav a + a {
+.tier-col + .tier-col {
   border-left: 1px solid var(--line);
+}
+
+.tier-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 価格帯ごとの違い(実装にある差だけを書く) */
+.tier-points {
+  list-style: none;
+  padding: 0 22px 22px;
+}
+
+.tier-points li {
+  position: relative;
+  padding: 9px 0 9px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.tier-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.25em;
+  width: 6px;
+  height: 1px;
+  background: var(--bordeaux);
 }
 
 .tier-nav a:hover {
@@ -1045,9 +1075,12 @@ a.media:focus-visible img {
 }
 
 .detail-intro,
+.detail-motion,
 .detail-gallery,
 .detail-mobile,
+.detail-how,
 .detail-spec,
+.detail-tierinfo,
 .detail-end {
   max-width: calc(var(--max-width) + var(--gutter) * 2);
   margin: 0 auto;
@@ -1152,6 +1185,150 @@ a.media:focus-visible img {
 
 .phone:nth-child(2) {
   margin-top: 64px;
+}
+
+/* 動いている様子(Signature) */
+.detail-motion {
+  margin-top: 150px;
+}
+
+.motion-frame {
+  margin-top: 28px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: var(--bg-deep);
+}
+
+.motion-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.motion-note {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+/* 購入から公開まで */
+.detail-how {
+  margin-top: 170px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 32px;
+  row-gap: 36px;
+  align-items: start;
+}
+
+.how-head {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+}
+
+.how-note {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.how-steps {
+  grid-column: 1 / 7;
+  list-style: none;
+}
+
+.how-steps li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 8px;
+  padding: 16px 0 18px;
+  border-top: 1px solid var(--line);
+}
+
+.how-no {
+  grid-row: span 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--bordeaux);
+}
+
+.how-steps h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.how-steps p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.how-file {
+  grid-column: 8 / 13;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--bg-deep);
+}
+
+.how-file figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.how-file figcaption span:first-child {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  color: var(--ink);
+}
+
+.how-file pre {
+  margin: 0;
+  padding: 18px 16px 20px;
+  overflow-x: auto;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--ink);
+  white-space: pre;
+}
+
+/* この価格帯について */
+.detail-tierinfo {
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 32px;
+  row-gap: 18px;
+  align-items: start;
+}
+
+.detail-tierinfo .detail-label {
+  grid-column: 1 / 4;
+}
+
+.detail-tierinfo .tier-points {
+  grid-column: 4 / 11;
+  padding: 0;
+}
+
+.detail-tierinfo .link-line {
+  grid-column: 4 / 11;
+  justify-self: start;
 }
 
 .detail-spec {
@@ -1342,9 +1519,23 @@ a.media:focus-visible img {
   }
 
   .detail-intro,
-  .detail-spec {
-    grid-template-columns: 1fr;
-    row-gap: 48px;
+  .detail-spec,
+  .detail-how,
+  .detail-tierinfo {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+  }
+
+  .how-steps,
+  .how-file,
+  .detail-tierinfo .detail-label,
+  .detail-tierinfo .tier-points,
+  .detail-tierinfo .link-line {
+    grid-column: 1 / -1;
+  }
+
+  .detail-tierinfo {
+    row-gap: 16px;
   }
 
   .detail-desc,
@@ -1379,9 +1570,13 @@ a.media:focus-visible img {
     margin: -16px auto 90px;
   }
 
-  .tier-nav a + a {
+  .tier-col + .tier-col {
     border-left: 0;
     border-top: 1px solid var(--line);
+  }
+
+  .tier-points {
+    padding: 0 4px 16px;
   }
 
   .tier-nav a {

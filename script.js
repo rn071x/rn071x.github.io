@@ -30,6 +30,20 @@
       contact: 'メールで問い合わせる',
       subject: (title) => `【${title}】サイト制作のご相談`,
       missing: 'テンプレートが見つかりません。',
+      motion: 'In motion',
+      motionNote: 'ライブプレビューを録画したものです。',
+      how: '購入から公開まで',
+      howNote: 'コードの知識は不要 · ビルド不要',
+      list: (xs) => xs.join('・'),
+      steps: (t, files, free) => [
+        ['購入してダウンロード', free ? 'チェックアウト画面から、無料でZIPを受け取れます。' : 'Polar で一度お支払いいただくと、すぐにZIPをダウンロードできます。'],
+        ['ガイドを開く', t.edit.guide === 'README' ? 'README(日本語・英語)に、変更したい内容と書き換える場所をまとめています。' : 'START_HERE(日本語・英語)が、手順を一つずつ案内します。'],
+        [`${files} を書き換える`, 'あなたの名前・文章・写真の一覧は、ここにまとまっています。クォートの間の文字を書き換えるだけで、HTMLは触りません。'],
+        ['写真を入れて公開', '写真を images フォルダに入れ、フォルダごと Netlify や Cloudflare Pages にドラッグします。どちらも無料プランがあります。'],
+      ],
+      fileNote: '実際の編集はこのような形です。',
+      about: (name) => `${name} について`,
+      compare: '価格帯をくらべる',
     },
     en: {
       details: 'View details',
@@ -43,6 +57,20 @@
       contact: 'Contact by email',
       subject: (title) => `[${title}] Website build inquiry`,
       missing: 'Template not found.',
+      motion: 'In motion',
+      motionNote: 'Recorded from the live preview.',
+      how: 'From purchase to publish',
+      howNote: 'No coding needed · No build step',
+      list: (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`),
+      steps: (t, files, free) => [
+        ['Buy and download', free ? 'Get the ZIP for free from the checkout page.' : 'Pay once on Polar. The ZIP is ready to download right away.'],
+        ['Open the guide', t.edit.guide === 'README' ? 'The README (English and Japanese) lists each change and where to make it.' : 'The START_HERE guide (English and Japanese) walks you through each step.'],
+        [`Edit ${files}`, 'Your name, words and photo list live here. Change the text between the quotes — no need to touch the HTML.'],
+        ['Add your photos and publish', 'Drop your photos into the images folder, then drag the whole folder into Netlify or Cloudflare Pages. Both have free plans.'],
+      ],
+      fileNote: 'This is what editing looks like.',
+      about: (name) => `About ${name}`,
+      compare: 'Compare tiers',
     },
   }[lang];
 
@@ -86,9 +114,12 @@
       .filter((g) => g.items.length);
     const rest = templates.filter((t) => t.status === 'soon' || !tierOf(t));
     mount.innerHTML = `
-      <nav class="tier-nav reveal" aria-label="${TEXT.tiersLabel}">
+      <nav class="tier-nav reveal" id="tiers" aria-label="${TEXT.tiersLabel}">
         ${groups.map((g) => `
-        <a href="#tier-${g.tier.id}"><span class="tier-nav-name">${esc(g.tier.name)}</span><span class="tier-nav-price">${samePrice(g.tier) ? '' : esc(g.tier.price)}</span><span class="tier-nav-count">${TEXT.count(g.items.length)}</span></a>`).join('')}
+        <div class="tier-col">
+          <a href="#tier-${g.tier.id}"><span class="tier-nav-name">${esc(g.tier.name)}</span><span class="tier-nav-price">${samePrice(g.tier) ? '' : esc(g.tier.price)}</span><span class="tier-nav-count">${TEXT.count(g.items.length)}</span></a>
+          ${(g.tier.points || []).length ? `<ul class="tier-points">${g.tier.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+        </div>`).join('')}
       </nav>
       ${groups.map((g) => `
       <div class="tier" id="tier-${g.tier.id}" role="region" aria-labelledby="tier-${g.tier.id}-name">
@@ -151,6 +182,17 @@
         </dl>
       </section>
 
+      ${t.video ? `
+      <section class="detail-motion">
+        <p class="detail-label reveal">${TEXT.motion}</p>
+        <figure class="motion-frame media">
+          <video muted loop playsinline preload="none"${t.videoPoster ? ` poster="${esc(src(t.videoPoster))}"` : ''}${reduceMotion ? ' controls' : ''} aria-label="${esc(t.title)} — ${TEXT.motion}">
+            <source src="${esc(src(t.video))}" type="video/mp4">
+          </video>
+        </figure>
+        <p class="motion-note reveal">${TEXT.motionNote}</p>
+      </section>` : ''}
+
       <section class="detail-gallery">
         ${(t.gallery || []).map((g, i) => `
         <figure class="shot shot--${i % 4}">
@@ -172,6 +214,22 @@
         </div>
       </section>` : ''}
 
+      ${t.edit ? `
+      <section class="detail-how">
+        <header class="how-head">
+          <p class="detail-label reveal">${TEXT.how}</p>
+          <p class="how-note reveal" data-delay="1">${TEXT.howNote}</p>
+        </header>
+        <ol class="how-steps">
+          ${TEXT.steps(t, TEXT.list(t.edit.files), t.tier === 'free').map(([title, text], i) => `
+          <li class="reveal" data-delay="${i}"><span class="how-no">${String(i + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></li>`).join('')}
+        </ol>
+        <figure class="how-file reveal" data-delay="2">
+          <figcaption><span>${esc(t.edit.files[0].split('/').pop())}</span><span>${TEXT.fileNote}</span></figcaption>
+          <pre><code>${esc(t.edit.snippet)}</code></pre>
+        </figure>
+      </section>` : ''}
+
       <section class="detail-spec">
         <div class="detail-includes reveal">
           <p class="detail-label">Includes</p>
@@ -181,6 +239,13 @@
           ${(t.specs || []).map((s) => `<div><dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd></div>`).join('')}
         </dl>
       </section>
+
+      ${tier && (tier.points || []).length ? `
+      <section class="detail-tierinfo">
+        <p class="detail-label reveal">${esc(TEXT.about(tier.name))}</p>
+        <ul class="tier-points reveal" data-delay="1">${tier.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+        <a class="link-line reveal" data-delay="2" href="${home}#tiers">${TEXT.compare}</a>
+      </section>` : ''}
 
       <section class="detail-end">
         <div class="detail-buy detail-buy--end reveal">
@@ -275,6 +340,16 @@
     window.addEventListener('pageshow', (e) => { if (e.persisted) body.classList.remove('is-leaving'); });
   }
 
+  /* ---------- 動画:画面に入ったら再生し、外れたら止める ---------- */
+  function motionVideos() {
+    const videos = [...document.querySelectorAll('.motion-frame video')];
+    if (!videos.length || reduceMotion || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.play().catch(() => { e.target.controls = true; }); } else { e.target.pause(); }
+    }), { threshold: 0.35 });
+    videos.forEach((v) => io.observe(v));
+  }
+
   window.TRACE_READY = true;
   renderExhibits();
   renderDetail();
@@ -282,4 +357,5 @@
   reveal();
   drift();
   transitions();
+  motionVideos();
 })();

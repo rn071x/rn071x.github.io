@@ -26,22 +26,60 @@ window.TRACE_TIERS = [
     id: 'signature',
     name: 'Signature',
     price: '$129',
-    note: 'Multi-page templates with a clear world and careful motion.',
-    ja: { price: '¥19,800', note: '世界観と動きまで作り込んだ、複数ページのテンプレート。' },
+    note: 'Templates built around a world of their own, with motion that carries it.',
+    points: [
+      'Built around one world — a night, a gallery wall, a studio, a black-and-white archive.',
+      'Motion that carries the site: scroll-driven scenes, moving galleries, transitions between pages.',
+      'Room for your work: project pages, About, Contact and more (MONO ARCHIVE is one long page).',
+    ],
+    ja: {
+      price: '¥19,800',
+      note: 'ひとつの世界観を軸に、動きまで作り込んだテンプレート。',
+      points: [
+        '夜、展示室の壁、スタジオ、白黒のアーカイブ。ひとつの世界観を軸に作っています。',
+        'スクロールで展開する場面、動くギャラリー、ページ間の遷移。動きがサイトの体験をつくります。',
+        '作品ページ・About・Contact などを備えた構成(MONO ARCHIVE は1ページの長い構成)。',
+      ],
+    },
   },
   {
     id: 'essential',
     name: 'Essential',
     price: '$29',
     note: 'Simple, quiet templates that are quick to set up.',
-    ja: { price: '¥4,800', note: 'すぐに使える、シンプルで静かなテンプレート。' },
+    points: [
+      'Calm, clean layouts that put your photos first.',
+      'Gentle motion: soft reveals, photos seen large.',
+      'One to five pages and fewer settings — quick to publish.',
+    ],
+    ja: {
+      price: '¥4,800',
+      note: 'すぐに使える、シンプルで静かなテンプレート。',
+      points: [
+        '写真を主役にした、静かで整ったレイアウト。',
+        'ふわっと現れる表示や拡大表示など、控えめな動き。',
+        '1〜5ページで設定項目も少なめ。すぐに公開できます。',
+      ],
+    },
   },
   {
     id: 'free',
     name: 'Free',
     price: 'Free',
     note: 'A one-page template to try first, free to use.',
-    ja: { note: 'まず試せる、無料の1ページテンプレート。' },
+    points: [
+      'One page, and one file to edit.',
+      'The same kind of guide as the paid templates.',
+      'Try the quality of TRACE before you buy.',
+    ],
+    ja: {
+      note: 'まず試せる、無料の1ページテンプレート。',
+      points: [
+        '1ページで、編集するのはファイル1つ。',
+        '有料テンプレートと同じ形式の手順ガイド付き。',
+        '購入の前に、TRACEの品質を試せます。',
+      ],
+    },
   },
 ];
 
@@ -59,6 +97,9 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_lFFFEtLeRZizXNFzRkh97l4e1JDdkEgtJagMi2vw36B',
     previewUrl: 'https://mono-archive.rn071-work.workers.dev/',
+    edit: {"files": ["assets/js/data/site.js", "works.js"], "guide": "README", "snippet": "name: 'REN KUROSE',\nnameJa: '黒瀬 蓮',\nrole: 'Photographer',\nlocation: 'Tokyo, Japan',\nsince: '2014',"},
+    video: 'images/templates/mono-archive/motion.mp4',
+    videoPoster: 'images/templates/mono-archive/motion.jpg',
     cover: 'images/templates/mono-archive/hero.jpg',
     productImages: [
       'images/templates/mono-archive/product-4x3.jpg',
@@ -152,6 +193,7 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_sP2AdDAHApajl9JwY95p5dLKAMwf1EKXrvrZn1Uhm8g',
     previewUrl: 'https://ecru.rn071-work.workers.dev/',
+    edit: {"files": ["assets/js/data/site.js", "works.js", "photos.js"], "guide": "README", "snippet": "name: 'Noa Shirai',\nrole: 'Objects, photographs & spaces',\nroleJa: 'うつわ、写真、空間',\nlocation: 'Kyoto, Japan',\nyear: '2026',"},
     cover: 'images/templates/ecru/hero.jpg',
     productImages: [
       'images/templates/ecru/product-4x3.jpg',
@@ -243,6 +285,7 @@ window.TRACE_TEMPLATES = [
     priceNote: 'Free for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_CETKxkBvMuJSpmwymf1tEaQileBr2lqUBMgpI1qiRFy',
     previewUrl: 'https://plate.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js"], "guide": "START_HERE", "snippet": "name: 'Mika Laurent',\nemail: 'hi@mikalaurent.com',\nphotos: [\n  { file: 'photo-01.jpg', title: 'Light Study I' },\n  …"},
     cover: 'images/templates/plate/hero.jpg',
     productImages: [
       'images/templates/plate/product-4x3.jpg',
@@ -333,6 +376,9 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_ooh3MCtSDUKs8faZv6nLqqvxlQgx4qDdYehSI1QiuJb',
     previewUrl: 'https://studio.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js", "works.js"], "guide": "START_HERE", "snippet": "theme: 'light',\nstudioName: 'Halden Studio',\npersonName: 'Theo Halden',\nlocation: 'Copenhagen, DK',\nheroText: 'Small studio.\\nCareful work.',"},
+    video: 'images/templates/studio/motion.mp4',
+    videoPoster: 'images/templates/studio/motion.jpg',
     cover: 'images/templates/studio/hero.jpg',
     productImages: [
       'images/templates/studio/product-4x3.jpg',
@@ -428,6 +474,9 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_PaSKSwSYNNgVGHRcfczVqZUaGgKY0NUkNaFgZ21ZHeU',
     previewUrl: 'https://nocturne.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js", "works.js"], "guide": "START_HERE", "snippet": "siteName: 'Nocturne',\npersonName: 'Ilse Moreau',\nrole: 'Photographer / Visual Artist',\ntagline: 'Between light and darkness',\nheroImage: 'hero.jpg',"},
+    video: 'images/templates/nocturne/motion.mp4',
+    videoPoster: 'images/templates/nocturne/motion.jpg',
     cover: 'images/templates/nocturne/hero.jpg',
     productImages: [
       'images/templates/nocturne/product-4x3.jpg',
@@ -525,6 +574,9 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_IBbiibfUw80UE3fnRgMs6AZIEjztSegx7f3g00piZrv',
     previewUrl: 'https://still.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js", "works.js", "journal.js"], "guide": "START_HERE", "snippet": "personName: 'Mara Velde',\nrole: 'Photographer & Art Director',\nheroTitle: 'Still',\nheroImage: 'hero.jpg',\nheroCaption: 'Still Life with Teapot, 2026',"},
+    video: 'images/templates/still/motion.mp4',
+    videoPoster: 'images/templates/still/motion.jpg',
     cover: 'images/templates/still/hero.jpg',
     productImages: [
       'images/templates/still/product-4x3.jpg',
@@ -622,6 +674,7 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_HmYzIZYefbUx6le1oYp93ZVesfyG1NeIByYSP0sK0Rh',
     previewUrl: 'https://plain.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js", "photos.js"], "guide": "START_HERE", "snippet": "personName: 'Aoi Fujisaki',\nnativeName: '藤崎 葵',\nrole: 'Photographer',\nheroImage: 'hero.jpg',\nheroCaption: 'Lake Bled, 2025',"},
     cover: 'images/templates/plain/hero.jpg',
     productImages: [
       'images/templates/plain/product-4x3.jpg',
@@ -719,6 +772,7 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_kctuBV7ejzI4da8MWPbOzU9j3ZVfqLO04Lze90tM85L',
     previewUrl: 'https://hearth.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js", "menu.js", "notes.js"], "guide": "START_HERE", "snippet": "shopName: 'Hearth',\nshopType: 'Bread by Mia, Copenhagen',\ntheme: 'paper',\nhours: [\n  { day: 'Thursday', hours: '10:00 - 15:00' },\n  …"},
     cover: 'images/templates/hearth/hero.jpg',
     productImages: [
       'images/templates/hearth/product-4x3.jpg',
@@ -814,6 +868,7 @@ window.TRACE_TEMPLATES = [
     priceNote: 'License for one website',
     purchaseUrl: 'https://buy.polar.sh/polar_cl_D2uPJAwAGW7UUx4kLcPhe0VmFBuKBKTcIe5Ty2C7q5V',
     previewUrl: 'https://loupe.rn071-work.workers.dev/',
+    edit: {"files": ["settings.js"], "guide": "START_HERE", "snippet": "name: 'Ren Aoki',\nrole: 'Photographer',\nstatus: { text: 'Booking portraits for November', available: true },\nlinks: [\n  { label: 'Portfolio', url: 'https://…' },\n  …"},
     cover: 'images/templates/loupe/hero.jpg',
     productImages: [
       'images/templates/loupe/product-4x3.jpg',

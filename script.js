@@ -42,6 +42,7 @@
         ['写真を入れて公開', '写真を images フォルダに入れ、フォルダごと Netlify や Cloudflare Pages にドラッグします。どちらも無料プランがあります。'],
       ],
       fileNote: '実際の編集はこのような形です。',
+      guide: '導入ガイドを読む',
       about: (name) => `${name} について`,
       compare: '価格帯をくらべる',
     },
@@ -69,6 +70,7 @@
         ['Add your photos and publish', 'Drop your photos into the images folder, then drag the whole folder into Netlify or Cloudflare Pages. Both have free plans.'],
       ],
       fileNote: 'This is what editing looks like.',
+      guide: 'Read the setup guide',
       about: (name) => `About ${name}`,
       compare: 'Compare tiers',
     },
@@ -219,6 +221,7 @@
         <header class="how-head">
           <p class="detail-label reveal">${TEXT.how}</p>
           <p class="how-note reveal" data-delay="1">${TEXT.howNote}</p>
+          <a class="link-line how-guide reveal" data-delay="2" href="${home}guide/">${TEXT.guide}</a>
         </header>
         <ol class="how-steps">
           ${TEXT.steps(t, TEXT.list(t.edit.files), t.tier === 'free').map(([title, text], i) => `

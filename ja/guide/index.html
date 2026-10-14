@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>導入ガイド — TRACE</title>
+<meta name="description" content="TRACE のWebテンプレートを導入・公開するためのガイド。ファイルの編集、写真の差し替え、Netlify や Cloudflare Pages での公開、よくあるトラブルの対処。">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=21">
+<link rel="canonical" href="https://tracebymori.com/ja/guide/">
+<link rel="alternate" hreflang="en" href="https://tracebymori.com/guide/">
+<link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/guide/">
+<link rel="alternate" hreflang="x-default" href="https://tracebymori.com/guide/">
+</head>
+<!--
+  TRACE — 導入ガイド(全テンプレート共通)
+  テンプレートごとの手順は、ZIP の中の START_HERE / README に書く。
+  ここには、実際に動作を確かめた手順だけを書く。
+-->
+<body class="page-guide" data-base="../../" data-home="../">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../" class="logo">TRACE</a>
+
+    <nav class="nav" id="nav" aria-label="メインナビゲーション">
+      <a href="../#templates">Templates</a>
+      <a href="../#services">Services</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+      <a class="nav-lang" href="../../guide/" hreflang="en" lang="en">EN</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main class="guide">
+  <header class="guide-head">
+    <p class="exhibit-no reveal">全テンプレート共通</p>
+    <h1 class="guide-title reveal" data-delay="1">導入ガイド</h1>
+    <p class="guide-lead reveal" data-delay="2">ZIPを開いてから、サイトを公開するまで。このページには、TRACE のすべてのテンプレートに共通することをまとめています。どのファイルに何が入っているかなど、テンプレートごとの手順は、ZIP の中の <code>START_HERE</code>(または <code>README</code>)をご覧ください。</p>
+  </header>
+
+  <nav class="guide-toc reveal" aria-label="目次">
+    <ol>
+      <li><a href="#start">はじめる前に</a></li>
+      <li><a href="#edit">ファイルの編集</a></li>
+      <li><a href="#photos">写真</a></li>
+      <li><a href="#phone">スマホでの確認</a></li>
+      <li><a href="#publish">公開する</a></li>
+      <li><a href="#domain">独自ドメイン</a></li>
+      <li><a href="#forms">お問い合わせフォーム</a></li>
+      <li><a href="#update">あとから変更する</a></li>
+      <li><a href="#problems">うまくいかないとき</a></li>
+      <li><a href="#license">ライセンス</a></li>
+    </ol>
+  </nav>
+
+  <section class="guide-part" id="start">
+    <h2><span>01</span>はじめる前に</h2>
+    <p>必要なのは、パソコンとブラウザとテキストエディタだけです。ほかのソフトも、プログラミングの知識もいりません。</p>
+    <ul>
+      <li><strong>ZIPを展開します。</strong> Mac ではダブルクリック、Windows では右クリック →「すべて展開」。</li>
+      <li><strong>フォルダの中の <code>index.html</code> をダブルクリック</strong>すると、テンプレートがブラウザで開きます。公開したときと同じ見た目です。</li>
+      <li><strong>テンプレートのガイドを開きます。</strong> <code>START_HERE.ja.md</code>(日本語)か <code>START_HERE.md</code>(英語)。MONO ARCHIVE と ÉCRU は <code>README.md</code>(日本語)と <code>README.en.md</code>(英語)です。</li>
+    </ul>
+    <p class="guide-note">テキストエディタは、Mac のテキストエディット、Windows のメモ帳で十分です。無料の <a class="link-line" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> を使うと読みやすくなりますが、なくても大丈夫です。</p>
+  </section>
+
+  <section class="guide-part" id="edit">
+    <h2><span>02</span>ファイルの編集</h2>
+    <p>文章・リンク・写真の一覧は、<code>settings.js</code> などの1〜3つの小さなファイルにまとまっています。これらを変えるために、HTMLを触る必要はありません。中身は、次のような行が並んでいます。</p>
+    <pre class="guide-code"><code>name: 'Your Name',
+role: 'Photographer',
+location: 'Tokyo, Japan',</code></pre>
+    <ul>
+      <li><strong>書き換えるのは、クォート <code>' '</code> の間の文字だけです。</strong> クォート、コロン、行の最後のカンマは残します。</li>
+      <li>文字の中でアポストロフィを使うときは、<code>’</code>(I’m など)を使います。日本語はそのまま書けます。</li>
+      <li>ガイドに書かれている場所では、<code>\n</code> で改行できます。</li>
+      <li>表示したくない項目は、クォートの中を空にします:<code>''</code></li>
+      <li>角カッコ <code>[ ]</code> の中の一覧(写真・リンク・作品など)は、1行またはひとかたまりで1件です。コピーすると追加、消すと削除、入れ替えると並び順が変わります。</li>
+    </ul>
+    <p>保存したら、ブラウザを再読み込みすると変更が反映されます。</p>
+  </section>
+
+  <section class="guide-part" id="photos">
+    <h2><span>03</span>写真</h2>
+    <p>ZIPには、ファイル名と縦横比を書いた仮の画像が入っています。これをあなたの写真に差し替えます。</p>
+    <ul>
+      <li><strong>いちばん簡単な方法:</strong> 写真の名前を仮の画像と同じ名前(<code>hero.jpg</code> など)に変えて、<code>images</code> フォルダにドラッグし、「置き換える」を選びます。</li>
+      <li><strong>または</strong>、写真を <code>images</code> に入れて、そのファイル名を設定ファイルに書きます。</li>
+      <li><strong>JPG で、長い辺が2000px前後</strong>あれば十分です。大きすぎるとページが重くなるだけです。</li>
+      <li><strong>ファイル名</strong>は半角の英数字とハイフンで。スペースや日本語は使いません。大文字・小文字も正確に書きます(多くのサーバーでは <code>photo.jpg</code> と <code>photo.JPG</code> は別のファイルです)。</li>
+      <li><strong><code>alt</code></strong> は、写真が見えない人のための短い説明です。「霧の湖に浮かぶ木の小舟」のように一行で書きます。</li>
+    </ul>
+  </section>
+
+  <section class="guide-part" id="phone">
+    <h2><span>04</span>スマホでの確認</h2>
+    <p>公開する前は、ブラウザの幅を狭くすると、スマホ向けの表示に切り替わります。公開したあとは、実際にスマホでアドレスを開いて確認してください。</p>
+  </section>
+
+  <section class="guide-part" id="publish">
+    <h2><span>05</span>公開する</h2>
+    <p>サイトはフォルダそのものなので、そのままアップロードできます。下の2つはどちらも無料プランがあり、ブラウザにフォルダをドラッグするだけで公開できます。<code>index.html</code> が入っているフォルダをアップロードしてください。</p>
+    <div class="guide-two">
+      <div>
+        <h3>Netlify</h3>
+        <ol>
+          <li><a class="link-line" href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a> を開きます。</li>
+          <li>テンプレートのフォルダを、ページにドラッグします。</li>
+          <li>サイトを残して名前を変えるために、無料で登録します。</li>
+        </ol>
+        <p class="guide-note"><a class="link-line" href="https://docs.netlify.com/site-deploys/create-deploys/#netlify-drop" target="_blank" rel="noopener">Netlify の公式ガイド(英語)</a></p>
+      </div>
+      <div>
+        <h3>Cloudflare Pages</h3>
+        <ol>
+          <li>Cloudflare の無料アカウントを作ります。</li>
+          <li>Pages のプロジェクトを作り、ファイルを直接アップロードする方法を選びます。</li>
+          <li>テンプレートのフォルダをドラッグして、公開します。</li>
+        </ol>
+        <p class="guide-note"><a class="link-line" href="https://developers.cloudflare.com/pages/get-started/direct-upload/" target="_blank" rel="noopener">Cloudflare の公式ガイド(英語)</a></p>
+      </div>
+    </div>
+    <p class="guide-note">各サービスの画面は、ときどき変わります。見た目が違うときは、上の公式ガイドが最新です。レンタルサーバーでも公開できます。すべてのファイルとフォルダを、同じ構成のままアップロードしてください。</p>
+  </section>
+
+  <section class="guide-part" id="domain">
+    <h2><span>06</span>独自ドメイン</h2>
+    <p>公開すると、まずサービスの無料のアドレス(<code>yourname.netlify.app</code> など)が使えます。<code>yourname.com</code> のような自分のアドレスを使いたいときは、ドメインを取得して、サービスの設定でつなぎます。</p>
+    <ul>
+      <li><a class="link-line" href="https://docs.netlify.com/domains-https/custom-domains/" target="_blank" rel="noopener">Netlify — 独自ドメイン(英語)</a></li>
+      <li><a class="link-line" href="https://developers.cloudflare.com/pages/configuration/custom-domains/" target="_blank" rel="noopener">Cloudflare Pages — 独自ドメイン(英語)</a></li>
+    </ul>
+  </section>
+
+  <section class="guide-part" id="forms">
+    <h2><span>07</span>お問い合わせフォーム</h2>
+    <p>STUDIO・NOCTURNE・STILL・PLAIN にはお問い合わせフォームがあります。そのままの状態では、<strong>Send</strong> を押すと、見た人のメールソフトが、あなた宛ての文面ができた状態で開きます。</p>
+    <p>サイトから直接メッセージを受け取りたいときは、<a class="link-line" href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> などのフォームサービス(無料プランあり)を使います。サービスでフォームを作り、<code>https://</code> から始まる送信先のアドレスをコピーして、<code>settings.js</code> に貼ります。</p>
+    <pre class="guide-code"><code>formAddress: 'https://formspree.io/f/xxxxxxx',</code></pre>
+  </section>
+
+  <section class="guide-part" id="update">
+    <h2><span>08</span>あとから変更する</h2>
+    <p>フォルダはパソコンに残しておきます。変更はそのフォルダの中で行い、ブラウザで確認してから、同じ方法でフォルダごともう一度アップロードします。アドレスは変わりません。</p>
+  </section>
+
+  <section class="guide-part" id="problems">
+    <h2><span>09</span>うまくいかないとき</h2>
+    <dl class="guide-faq">
+      <div><dt>「settings.js could not be read」(または別のファイル名)と表示される</dt><dd>クォート、カンマ、カッコを消してしまっています。変更した行を、ガイドの例と見比べてください。取り消し(⌘Z / Ctrl+Z)で戻すのも近道です。</dd></div>
+      <div><dt>写真の場所に「Image not found: images/…」と表示される</dt><dd>ファイルに書いた名前と、<code>images</code> の中のファイル名が違います。つづり、大文字・小文字、末尾(<code>.jpg</code>・<code>.jpeg</code>・<code>.png</code>)を確認してください。</dd></div>
+      <div><dt>変更が反映されない</dt><dd>ファイルを保存してから、ブラウザを再読み込みしてください。公開後は、古い表示がしばらく残ることがあります。少し待ってから、もう一度読み込んでください。</dd></div>
+      <div><dt>ページが真っ白になる</dt><dd>多くは、いちばん上と同じ原因(クォートやカンマの消し忘れ)です。最後に変更したファイルの、その行を確認してください。</dd></div>
+      <div><dt>公開したあとだけ写真が出ない</dt><dd>ファイル名の大文字・小文字が違う(<code>Photo.jpg</code> と <code>photo.jpg</code>)か、<code>images</code> フォルダがアップロードされていません。</dd></div>
+    </dl>
+  </section>
+
+  <section class="guide-part" id="license">
+    <h2><span>10</span>ライセンス</h2>
+    <p>1回の購入で、テンプレートを1つのWebサイトに使用できます。自由に変更でき、ご自身のサイトにも、クライアント1件のサイトにも、商用目的でも使えます。テンプレートの転売・共有はできません。全文は ZIP の中の <code>LICENSE.md</code> をご覧ください。</p>
+    <p class="guide-note">デモサイトの写真は、ダウンロードには含まれていません。サイト制作をおまかせしたい場合は、<a class="link-line" href="../#contact">お問い合わせ</a>ください。</p>
+  </section>
+
+  <a class="detail-back reveal" href="../#templates">← Templates</a>
+</main>
+
+<footer class="site-footer">
+  <span class="footer-logo">TRACE</span>
+  <span class="footer-copy">&copy; 2026 TRACE</span>
+</footer>
+
+<script src="../../data/templates.js?v=21"></script>
+<script src="../../script.js?v=21"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cf12b9aeffe4a7aa56cfffbe704f1f8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

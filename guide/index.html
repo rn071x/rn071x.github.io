@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup guide — TRACE</title>
+<meta name="description" content="How to set up and publish a TRACE website template: editing files, replacing photos, publishing on Netlify or Cloudflare Pages, and fixing common problems.">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=21">
+<link rel="canonical" href="https://tracebymori.com/guide/">
+<link rel="alternate" hreflang="en" href="https://tracebymori.com/guide/">
+<link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/guide/">
+<link rel="alternate" hreflang="x-default" href="https://tracebymori.com/guide/">
+</head>
+<!--
+  TRACE — Setup guide (shared by every template)
+  全テンプレート共通の導入ガイド。テンプレートごとの手順は、ZIP の中の START_HERE / README に書く。
+  ここには、実際に動作を確かめた手順だけを書く。
+-->
+<body class="page-guide" data-base="../" data-home="../">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../" class="logo">TRACE</a>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="../#templates">Templates</a>
+      <a href="../#services">Services</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+      <a class="nav-lang" href="../ja/guide/" hreflang="ja" lang="ja">JA</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main class="guide">
+  <header class="guide-head">
+    <p class="exhibit-no reveal">For every template</p>
+    <h1 class="guide-title reveal" data-delay="1">Setup guide</h1>
+    <p class="guide-lead reveal" data-delay="2">From the ZIP to a published website. This page covers what every TRACE template has in common. The steps for your template — which file holds what — are in <code>START_HERE</code> (or <code>README</code>) inside the ZIP.</p>
+  </header>
+
+  <nav class="guide-toc reveal" aria-label="Contents">
+    <ol>
+      <li><a href="#start">Before you start</a></li>
+      <li><a href="#edit">Editing a file</a></li>
+      <li><a href="#photos">Your photos</a></li>
+      <li><a href="#phone">Checking on a phone</a></li>
+      <li><a href="#publish">Publishing</a></li>
+      <li><a href="#domain">Your own domain</a></li>
+      <li><a href="#forms">Contact forms</a></li>
+      <li><a href="#update">Changing it later</a></li>
+      <li><a href="#problems">If something goes wrong</a></li>
+      <li><a href="#license">License</a></li>
+    </ol>
+  </nav>
+
+  <section class="guide-part" id="start">
+    <h2><span>01</span>Before you start</h2>
+    <p>You need a computer, a browser and a text editor. No other software, and no coding.</p>
+    <ul>
+      <li><strong>Unzip the download.</strong> On a Mac, double-click the ZIP. On Windows, right-click → Extract All.</li>
+      <li><strong>Open <code>index.html</code></strong> in the folder by double-clicking it. Your template opens in the browser, exactly as it will look online.</li>
+      <li><strong>Open the guide</strong> for your template: <code>START_HERE.md</code> (English) or <code>START_HERE.ja.md</code> (Japanese). MONO ARCHIVE and ÉCRU use <code>README.en.md</code> and <code>README.md</code>.</li>
+    </ul>
+    <p class="guide-note">A text editor is enough: TextEdit on a Mac, Notepad on Windows. The free <a class="link-line" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> makes the files easier to read, but you don't need it.</p>
+  </section>
+
+  <section class="guide-part" id="edit">
+    <h2><span>02</span>Editing a file</h2>
+    <p>Your words, links and photo list live in one to three small files, such as <code>settings.js</code>. You never need to touch the HTML to change them. Every line looks like this:</p>
+    <pre class="guide-code"><code>name: 'Your Name',
+role: 'Photographer',
+location: 'Tokyo, Japan',</code></pre>
+    <ul>
+      <li><strong>Change only the text between the quotes <code>' '</code>.</strong> Keep the quotes, the colon and the comma at the end.</li>
+      <li>To write a quote inside the text, use the curly one: <code>’</code> (as in <code>I’m</code>).</li>
+      <li><code>\n</code> starts a new line, where the guide says so.</li>
+      <li>To hide something, leave the quotes empty: <code>''</code>.</li>
+      <li>Lists in square brackets <code>[ ]</code> — photos, links, works — have one item per line or per block. Copy an item to add one, delete it to remove it, move it to change the order.</li>
+    </ul>
+    <p>Save the file, then reload the page in your browser to see the change.</p>
+  </section>
+
+  <section class="guide-part" id="photos">
+    <h2><span>03</span>Your photos</h2>
+    <p>The ZIP comes with placeholder images that show their file name and shape. Replace them with your own.</p>
+    <ul>
+      <li><strong>The easiest way:</strong> give your photo the same name as a placeholder (for example <code>hero.jpg</code>), drag it into the <code>images</code> folder and choose Replace.</li>
+      <li><strong>Or</strong> put your photo in <code>images</code> and write its file name in the settings file.</li>
+      <li><strong>JPG, about 2000 px</strong> on the long side, is enough. Bigger files only make the page slower.</li>
+      <li><strong>File names:</strong> letters, numbers, hyphens. No spaces. Write them exactly — <code>photo.jpg</code> and <code>photo.JPG</code> are different files on most web servers.</li>
+      <li><strong><code>alt</code></strong> is a short description of the photo for people who can't see it. Write one line, such as <em>A wooden boat on a misty lake</em>.</li>
+    </ul>
+  </section>
+
+  <section class="guide-part" id="phone">
+    <h2><span>04</span>Checking on a phone</h2>
+    <p>Before publishing, make your browser window narrow: the template switches to its phone layout. After publishing, open the address on your phone to check it for real.</p>
+  </section>
+
+  <section class="guide-part" id="publish">
+    <h2><span>05</span>Publishing</h2>
+    <p>Your website is just a folder, so you can upload it as it is. Both services below have free plans and let you upload by dragging the folder into the browser. Upload the folder that contains <code>index.html</code>.</p>
+    <div class="guide-two">
+      <div>
+        <h3>Netlify</h3>
+        <ol>
+          <li>Open <a class="link-line" href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a>.</li>
+          <li>Drag your template folder onto the page.</li>
+          <li>Sign up (free) to keep the site and change its name.</li>
+        </ol>
+        <p class="guide-note"><a class="link-line" href="https://docs.netlify.com/site-deploys/create-deploys/#netlify-drop" target="_blank" rel="noopener">Netlify's own guide</a></p>
+      </div>
+      <div>
+        <h3>Cloudflare Pages</h3>
+        <ol>
+          <li>Create a free Cloudflare account.</li>
+          <li>Create a Pages project and choose to upload your files directly.</li>
+          <li>Drag your template folder in, then deploy.</li>
+        </ol>
+        <p class="guide-note"><a class="link-line" href="https://developers.cloudflare.com/pages/get-started/direct-upload/" target="_blank" rel="noopener">Cloudflare's own guide</a></p>
+      </div>
+    </div>
+    <p class="guide-note">The screens of these services change from time to time. If something looks different, their own guides above are always up to date. Any other hosting works too: upload every file and folder with the same structure.</p>
+  </section>
+
+  <section class="guide-part" id="domain">
+    <h2><span>06</span>Your own domain</h2>
+    <p>Your site first gets a free address from the service (such as <code>yourname.netlify.app</code>). To use your own, like <code>yourname.com</code>, buy a domain from a registrar and connect it in the service's settings:</p>
+    <ul>
+      <li><a class="link-line" href="https://docs.netlify.com/domains-https/custom-domains/" target="_blank" rel="noopener">Netlify — custom domains</a></li>
+      <li><a class="link-line" href="https://developers.cloudflare.com/pages/configuration/custom-domains/" target="_blank" rel="noopener">Cloudflare Pages — custom domains</a></li>
+    </ul>
+  </section>
+
+  <section class="guide-part" id="forms">
+    <h2><span>07</span>Contact forms</h2>
+    <p>STUDIO, NOCTURNE, STILL and PLAIN have a contact form. As it comes, <strong>Send</strong> opens the visitor's email app with their message ready to send to your address.</p>
+    <p>To receive messages straight from the site, use a form service such as <a class="link-line" href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> (free plan available). Create a form there, copy the form address that starts with <code>https://</code>, and paste it into <code>settings.js</code>:</p>
+    <pre class="guide-code"><code>formAddress: 'https://formspree.io/f/xxxxxxx',</code></pre>
+  </section>
+
+  <section class="guide-part" id="update">
+    <h2><span>08</span>Changing it later</h2>
+    <p>Keep the folder on your computer. Edit the files there, check them in the browser, then upload the whole folder again the same way. The address stays the same.</p>
+  </section>
+
+  <section class="guide-part" id="problems">
+    <h2><span>09</span>If something goes wrong</h2>
+    <dl class="guide-faq">
+      <div><dt>“settings.js could not be read” (or another file name)</dt><dd>A quote, comma or bracket was deleted by mistake. Compare the line you changed with the examples in your guide. Undo (⌘Z / Ctrl+Z) often helps.</dd></div>
+      <div><dt>“Image not found: images/…” in place of a photo</dt><dd>The name written in the file doesn't match the file in <code>images</code>. Check spelling, capital letters and the ending (<code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>).</dd></div>
+      <div><dt>A change doesn't appear</dt><dd>Save the file, then reload the browser. Online, the old version can stay for a moment — reload again after a minute.</dd></div>
+      <div><dt>The page is blank</dt><dd>Usually the same as the first problem: a missing quote or comma. Open the last file you changed and check the line.</dd></div>
+      <div><dt>Photos are missing only after publishing</dt><dd>The file name's capital letters don't match (<code>Photo.jpg</code> vs <code>photo.jpg</code>), or the <code>images</code> folder wasn't uploaded.</dd></div>
+    </dl>
+  </section>
+
+  <section class="guide-part" id="license">
+    <h2><span>10</span>License</h2>
+    <p>One purchase lets you use the template for one website. You can change it as you like and use it for commercial work, for yourself or for one client. You can't resell or share the template. The full text is in <code>LICENSE.md</code> in the ZIP.</p>
+    <p class="guide-note">The demo photos are not included in the download. If you'd rather have TRACE build the site for you, <a class="link-line" href="../#contact">get in touch</a>.</p>
+  </section>
+
+  <a class="detail-back reveal" href="../#templates">← Templates</a>
+</main>
+
+<footer class="site-footer">
+  <span class="footer-logo">TRACE</span>
+  <span class="footer-copy">&copy; 2026 TRACE</span>
+</footer>
+
+<script src="../data/templates.js?v=21"></script>
+<script src="../script.js?v=21"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cf12b9aeffe4a7aa56cfffbe704f1f8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

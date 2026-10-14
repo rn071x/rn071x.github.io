@@ -149,7 +149,7 @@ function writeFile(rel, content) {
 /* ---------- 実行 ---------- */
 const templates = loadTemplates();
 const changed = [];
-const sitemapPaths = [''];  // トップページ(英語版 / と日本語版 /ja/)
+const sitemapPaths = ['', 'guide/'];  // トップページと導入ガイド(英語版と日本語版 /ja/)
 
 templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
   LANGS.forEach(({ lang, dir }) => {

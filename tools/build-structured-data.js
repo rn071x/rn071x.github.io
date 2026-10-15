@@ -22,7 +22,7 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://tracebymori.com';
-const BRAND = 'TRACE';
+const BRAND = 'TraceStudio';
 // 英語がメイン(ルート)、日本語がサブ(/ja/)
 const LANGS = [
   { lang: 'en', dir: '' },

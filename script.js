@@ -54,7 +54,7 @@
       crumb: 'Breadcrumb',
       count: (n) => `${n} ${n === 1 ? 'template' : 'templates'}`,
       tiersLabel: 'Price tiers',
-      build: 'TRACE can also build your site based on this template.',
+      build: 'TraceStudio can also build your site based on this template.',
       contact: 'Contact by email',
       subject: (title) => `[${title}] Website build inquiry`,
       missing: 'Template not found.',

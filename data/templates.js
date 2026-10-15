@@ -1,5 +1,5 @@
 /* ==========================================================
-   TRACE — テンプレートのデータ / Template data
+   TraceStudio — テンプレートのデータ / Template data
    ----------------------------------------------------------
    英語が基本(メイン)。日本語版(/ja/)の文面は各テンプレートの ja にまとめる
    (ja に書かなかった項目は英語のまま使われる)。
@@ -70,14 +70,14 @@ window.TRACE_TIERS = [
     points: [
       'One page, and one file to edit.',
       'The same kind of guide as the paid templates.',
-      'Try the quality of TRACE before you buy.',
+      'Try the quality of TraceStudio before you buy.',
     ],
     ja: {
       note: 'まず試せる、無料の1ページテンプレート。',
       points: [
         '1ページで、編集するのはファイル1つ。',
         '有料テンプレートと同じ形式の手順ガイド付き。',
-        '購入の前に、TRACEの品質を試せます。',
+        '購入の前に、TraceStudioの品質を試せます。',
       ],
     },
   },

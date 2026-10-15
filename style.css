@@ -219,8 +219,8 @@ a.media:focus-visible img {
 
 .logo {
   font-family: var(--serif);
-  font-size: 19px;
-  letter-spacing: 0.12em;
+  font-size: 20px;
+  letter-spacing: 0.03em;
 }
 
 .nav {
@@ -326,9 +326,9 @@ a.media:focus-visible img {
   margin-top: 18px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(54px, 6.4vw, 92px);
+  font-size: clamp(50px, 6vw, 88px);
   line-height: 1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.01em;
 }
 
 .hero-lead {
@@ -1054,7 +1054,8 @@ a.media:focus-visible img {
 
 .footer-logo {
   font-family: var(--serif);
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  letter-spacing: 0.03em;
 }
 
 .footer-nav {

@@ -624,6 +624,67 @@ a.media:focus-visible img {
   margin-top: 60px;
 }
 
+/* Essential / Free:小さめのカード */
+.cards {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 56px;
+  row-gap: 96px;
+}
+
+.card-media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 20px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 1.2s var(--ease);
+}
+
+.card-media:hover img {
+  transform: scale(1.025);
+}
+
+.card-title {
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+}
+
+.card-use {
+  margin-top: 4px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.card-summary {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.card-foot {
+  margin-top: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
 /* 詳細ページ:番号の横に価格帯 */
 .detail-tier {
   margin-left: 14px;
@@ -965,6 +1026,63 @@ a.media:focus-visible img {
 .footer-logo {
   font-family: var(--serif);
   letter-spacing: 0.12em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+
+.footer-nav a {
+  transition: color 0.4s var(--ease);
+}
+
+.footer-nav a:hover {
+  color: var(--bordeaux);
+}
+
+/* ==========================================================
+   How it works(トップ)
+   ========================================================== */
+.how-list {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+}
+
+.how-list li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-content: start;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.how-list .how-no {
+  grid-row: span 2;
+}
+
+.how-list h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.how-list p {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.how-more {
+  max-width: var(--max-width);
+  margin: 48px auto 0;
 }
 
 /* ==========================================================
@@ -1759,6 +1877,28 @@ a.media:focus-visible img {
   .tier-nav {
     grid-template-columns: 1fr;
     margin: -16px auto 90px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 56px;
+  }
+
+  .card-title { font-size: 22px; letter-spacing: 0.04em; }
+  .card-use { font-size: 13px; }
+  .card-summary { display: none; }
+  .card-foot { flex-direction: column; gap: 4px; }
+
+  .how-list {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
   .tier-col + .tier-col {

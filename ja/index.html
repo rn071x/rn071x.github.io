@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="en" href="https://tracebymori.com/">
 <link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/">
 <link rel="alternate" hreflang="x-default" href="https://tracebymori.com/">
-<link rel="stylesheet" href="../style.css?v=21">
+<link rel="stylesheet" href="../style.css?v=22">
 </head>
 <!--
   TRACE — 日本語版(サブ)。英語版(メイン)は ../index.html。
@@ -55,10 +55,12 @@
     <p class="hero-lead reveal" data-delay="2">佇まいを、淑やかに。</p>
     <p class="hero-text reveal" data-delay="3">
       写真家やクリエイター向けの、Webサイトのテンプレートを販売しています。<br>
-      購入してご自身で使うほか、サイト制作のご依頼も受け付けています。
+      制作を依頼しなくても、自分の世界観を持ったサイトを。<br>
+      まずは無料のテンプレートから試せます。サイト制作のご依頼も受け付けています。
     </p>
     <div class="hero-links reveal" data-delay="4">
       <a class="link-line" href="#templates">Templates を見る</a>
+      <a class="link-line" href="templates/plate/">無料で試す</a>
       <a class="link-line" href="#services">構築のご相談</a>
     </div>
   </div>
@@ -67,10 +69,10 @@
     <figure class="hero-photo media" data-drift="-0.04">
       <img src="../images/brand/02.jpg" alt="雲の切れ間から差す夕方の光" fetchpriority="high">
     </figure>
-    <a class="hero-preview media" href="templates/mono-archive/" data-drift="0.03">
-      <img src="../images/templates/mono-archive/hero.jpg" alt="テンプレート MONO ARCHIVE のトップ画面">
+    <a class="hero-preview media" href="templates/nocturne/" data-drift="0.03">
+      <img src="../images/templates/nocturne/hero.jpg" alt="テンプレート NOCTURNE のトップ画面。夜の湖に大きなセリフ体のタイトル">
     </a>
-    <p class="hero-caption reveal" data-delay="5"><span>No. 01</span> MONO ARCHIVE</p>
+    <p class="hero-caption reveal" data-delay="5"><span>No. 05</span> NOCTURNE</p>
   </div>
 
   <p class="scroll-hint" aria-hidden="true"><span></span>Scroll</p>
@@ -83,6 +85,20 @@
     <p class="section-note reveal" data-delay="1">販売中のテンプレート</p>
   </header>
   <div class="exhibits" data-render="templates"></div>
+</section>
+
+<!-- ========== How it works ========== -->
+<section class="how" id="how">
+  <header class="section-head">
+    <h2 class="section-label reveal">How it works</h2>
+    <p class="section-note reveal" data-delay="1">コードの知識は不要です</p>
+  </header>
+  <ol class="how-list">
+    <li class="reveal"><span class="how-no">01</span><h3>テンプレートを選ぶ</h3><p>無料・¥4,800・¥19,800。どれも、動くデモで先に試せます。</p></li>
+    <li class="reveal" data-delay="1"><span class="how-no">02</span><h3>1〜3つのファイルを書き換える</h3><p>名前・文章・写真は、settings.js などの小さなファイルにまとまっています。クォートの間の文字を書き換えるだけです。</p></li>
+    <li class="reveal" data-delay="2"><span class="how-no">03</span><h3>公開する</h3><p>フォルダを Netlify や Cloudflare Pages にドラッグします。どちらも無料プランがあります。</p></li>
+  </ol>
+  <p class="how-more reveal" data-delay="3"><a class="link-line" href="guide/">導入ガイドを読む</a></p>
 </section>
 
 <!-- ========== Interlude ========== -->
@@ -178,11 +194,17 @@
 <!-- ========== Footer ========== -->
 <footer class="site-footer">
   <span class="footer-logo">TRACE</span>
+  <nav class="footer-nav" aria-label="フッター">
+    <a href="#templates">Templates</a>
+    <a href="guide/">導入ガイド</a>
+    <a href="#contact">Contact</a>
+    <a href="https://instagram.com/rn071xx" target="_blank" rel="noopener">Instagram</a>
+  </nav>
   <span class="footer-copy">&copy; 2026 TRACE</span>
 </footer>
 
-<script src="../data/templates.js?v=21"></script>
-<script src="../script.js?v=21"></script>
+<script src="../data/templates.js?v=22"></script>
+<script src="../script.js?v=22"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cf12b9aeffe4a7aa56cfffbe704f1f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -107,6 +107,20 @@
       </article>`;
   };
 
+  // Essential と Free は小さめのカードで並べる(Signature は大きな展示のまま)
+  const card = (t) => {
+    const href = `${home}templates/${t.slug}/`;
+    return `
+      <article class="card">
+        <a class="card-media media" href="${href}"><img src="${esc(src(t.cover))}" alt="${esc(t.coverAlt)}" loading="lazy"></a>
+        <p class="exhibit-no reveal">No. ${esc(t.no)}</p>
+        <h3 class="card-title reveal"><a href="${href}">${esc(t.title)}</a></h3>
+        <p class="card-use reveal">${esc(t.useJa || t.use)}</p>
+        <p class="card-summary reveal">${esc(t.summary)}</p>
+        <p class="card-foot reveal"><span class="exhibit-price">${esc(t.price)}</span><a class="link-line" href="${href}">${TEXT.details}</a></p>
+      </article>`;
+  };
+
   function renderExhibits() {
     const mount = document.querySelector('[data-render="templates"]');
     if (!mount) return;
@@ -131,7 +145,7 @@
           <p class="tier-note reveal" data-delay="1">${esc(g.tier.note)}</p>
           <p class="tier-count reveal" data-delay="2">${TEXT.count(g.items.length)}</p>
         </header>
-        ${g.items.map(exhibit).join('')}
+        ${g.tier.id === 'signature' ? g.items.map(exhibit).join('') : `<div class="cards">${g.items.map(card).join('')}</div>`}
       </div>`).join('')}
       ${rest.length ? `<div class="tier tier--rest">${rest.map(exhibit).join('')}</div>` : ''}`;
   }

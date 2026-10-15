@@ -919,9 +919,14 @@ a.media:focus-visible img {
 .about-lead {
   font-family: var(--serif-ja);
   font-weight: 300;
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(22px, 2.3vw, 30px);
   line-height: 1.8;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
+  word-break: keep-all;
+}
+
+.about-copy .about-text {
+  text-wrap: pretty;
 }
 
 .about-lead--en {
@@ -938,12 +943,28 @@ a.media:focus-visible img {
   color: var(--ink-soft);
 }
 
-.about-sign {
-  margin-top: 28px;
+.about-copy .about-text + .about-text {
+  margin-top: 18px;
+}
+
+.about-em {
+  margin-top: 30px;
+  font-family: var(--serif-ja);
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  color: var(--bordeaux);
+}
+
+.about-em--en {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 18px;
-  color: var(--bordeaux);
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.about-em + .about-text {
+  margin-top: 18px;
 }
 
 .about-visual {

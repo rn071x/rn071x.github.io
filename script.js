@@ -8,7 +8,8 @@
   const home = body.dataset.home || '';   // リンク先へのパス(その言語のトップまで)
   const lang = document.documentElement.lang === 'ja' ? 'ja' : 'en';
   // 英語が基本。日本語版(/ja/)では、各テンプレートの ja の中身で項目を上書きする
-  const templates = (window.TRACE_TEMPLATES || []).map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
+  // 取り下げたテンプレート(status: 'retired')はどこにも出さない
+  const templates = (window.TRACE_TEMPLATES || []).filter((t) => t.status !== 'retired').map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
   // 価格帯(Signature / Essential / Free)。一覧はこの順に、価格帯ごとに分けて並べる
   const tiers = (window.TRACE_TIERS || []).map((t) => (lang === 'ja' && t.ja ? { ...t, ...t.ja } : t));
   const tierOf = (t) => tiers.find((x) => x.id === t.tier);

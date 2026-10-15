@@ -151,7 +151,7 @@ const templates = loadTemplates();
 const changed = [];
 const sitemapPaths = ['', 'guide/'];  // トップページと導入ガイド(英語版と日本語版 /ja/)
 
-templates.filter((t) => t.status !== 'soon' && t.slug).forEach((base) => {
+templates.filter((t) => t.status !== 'soon' && t.status !== 'retired' && t.slug).forEach((base) => {
   LANGS.forEach(({ lang, dir }) => {
     const t = lang === 'ja' && base.ja ? { ...base, ...base.ja } : base;
     const rel = `${dir}templates/${t.slug}/index.html`;

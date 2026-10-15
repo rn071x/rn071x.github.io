@@ -932,10 +932,18 @@ a.media:focus-visible img {
 }
 
 .about-text {
-  margin-top: 40px;
+  margin-top: 28px;
   font-size: 13.5px;
   line-height: 2.3;
   color: var(--ink-soft);
+}
+
+.about-sign {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--bordeaux);
 }
 
 .about-visual {
@@ -951,17 +959,17 @@ a.media:focus-visible img {
 .about-photo--a {
   top: 0;
   right: 0;
-  width: 82%;
-  aspect-ratio: 3 / 2;
-  max-height: 420px;
+  width: 62%;
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
 }
 
 .about-photo--b {
   left: 0;
   bottom: 0;
-  width: 38%;
-  aspect-ratio: 2 / 3;
-  max-height: 360px;
+  width: 46%;
+  aspect-ratio: 3 / 2;
+  max-height: 260px;
   border: 8px solid var(--bg);
   box-sizing: content-box;
 }

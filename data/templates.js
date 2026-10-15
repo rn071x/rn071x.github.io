@@ -960,8 +960,8 @@ window.TRACE_TEMPLATES = [
     summary: 'A free, one-page link page — one photo in an oval frame, your name and your links.',
     price: 'Free',
     priceNote: 'Free for your own websites',
-    purchaseUrl: '',
-    previewUrl: '',
+    purchaseUrl: 'https://buy.polar.sh/polar_cl_QdWOEN5zRwnuUH84wRJ2SyBIy0vWfQ2QzkSmN2gnxQW',
+    previewUrl: 'https://carte.rn071-work.workers.dev/',
     edit: {"files": ["settings.js"], "guide": "START_HERE", "snippet": "name: 'Elise Marchand',\nrole: 'Photographer',\nlinks: [\n  { label: 'Portfolio', url: 'https://…' },\n  …"},
     cover: 'images/templates/carte/hero.jpg',
     productImages: [

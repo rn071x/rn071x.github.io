@@ -66,7 +66,7 @@ window.TRACE_TIERS = [
     id: 'free',
     name: 'Free',
     price: 'Free',
-    note: 'A one-page template to try first, free to use.',
+    note: 'One-page templates to try first, free to use.',
     points: [
       'One page, and one file to edit.',
       'The same kind of guide as the paid templates.',
@@ -944,6 +944,89 @@ window.TRACE_TEMPLATES = [
       specs: [
         { label: 'Pages', value: '1ページ' },
         { label: 'Tone', value: 'light・darkroom / セリフ体と等幅' },
+        { label: 'Built with', value: 'HTML, CSS, JavaScript' },
+        { label: 'Use', value: 'Instagram のプロフィール、名刺、メールの署名' },
+      ],
+    },
+  },
+  {
+    slug: 'carte',
+    tier: 'free',
+    no: '10',
+    status: 'available',
+    title: 'CARTE',
+    use: 'Free Link-in-Bio Page',
+    useJa: '',
+    summary: 'A free, one-page link page — one photo in an oval frame, your name and your links.',
+    price: 'Free',
+    priceNote: 'Free for your own websites',
+    purchaseUrl: '',
+    previewUrl: '',
+    edit: {"files": ["settings.js"], "guide": "START_HERE", "snippet": "name: 'Elise Marchand',\nrole: 'Photographer',\nlinks: [\n  { label: 'Portfolio', url: 'https://…' },\n  …"},
+    cover: 'images/templates/carte/hero.jpg',
+    productImages: [
+      'images/templates/carte/product-4x3.jpg',
+      'images/templates/carte/product-1x1.jpg',
+    ],
+    coverAlt: 'The CARTE page: a landscape photo in an oval frame above a name and four numbered links',
+    description: [
+      'A free link page for your Instagram bio, business card or email signature. Centred like the title page of a book: one photo in an oval frame, your name, and your links numbered I. II. III.',
+      'Everything lives in one file, settings.js. When you want camera notes, a photo for each link and recent photos, LOUPE is the next step.',
+    ],
+    features: [
+      { title: 'A title page', text: 'A classic, centred layout with an oval photo frame.' },
+      { title: 'Numbered links', text: 'Roman numerals and a quiet hover.' },
+      { title: 'One file to edit', text: 'Your name, photo, links and email are all in settings.js.' },
+      { title: 'Free to use', text: 'For your own websites, as many as you like.' },
+    ],
+    gallery: [
+      { src: 'images/templates/carte/hover.jpg', alt: 'Pointing at a link turns it italic', caption: 'Numbered links' },
+    ],
+    mobile: [
+      { src: 'images/templates/carte/m-hero.jpg', alt: 'The page on a smartphone' },
+    ],
+    includes: [
+      'HTML / CSS / JavaScript files (no build step, no external libraries)',
+      'settings.js — the only file you edit',
+      'Step-by-step guide (START_HERE, in English and Japanese)',
+      'A placeholder image with the same name as the demo',
+    ],
+    specs: [
+      { label: 'Pages', value: 'One page' },
+      { label: 'Tone', value: 'Warm paper / Serif' },
+      { label: 'Built with', value: 'HTML, CSS, JavaScript' },
+      { label: 'Use', value: 'Instagram bio, business card, email signature' },
+    ],
+    ja: {
+      useJa: '無料のリンクまとめ',
+      summary: '無料の、リンクまとめの1ページ。楕円の額の写真1枚と、名前、リンクを。',
+      priceNote: 'ご自身のサイトに無料で使えます',
+      coverAlt: 'CARTEの画面。楕円の額に入った風景写真と、その下の名前と番号つきのリンク',
+      description: [
+        'Instagram のプロフィールや名刺、メールの署名に使える、無料のリンクまとめのページです。本の扉ページのように中央にそろえ、楕円の額の写真1枚、名前、I. II. III. と番号のついたリンクを並べます。',
+        '設定はすべて settings.js の1ファイル。撮影データやリンクごとの写真、最近の写真も載せたくなったら、LOUPE があります。',
+      ],
+      features: [
+        { title: 'A title page', text: '楕円の額の写真を中心にした、古典的な中央揃えのレイアウト。' },
+        { title: 'Numbered links', text: 'ローマ数字の番号と、控えめなホバー。' },
+        { title: 'One file to edit', text: '名前・写真・リンク・メールは settings.js だけ。' },
+        { title: 'Free to use', text: 'ご自身のサイトに、いくつでも無料で使えます。' },
+      ],
+      gallery: [
+        { src: 'images/templates/carte/hover.jpg', alt: 'リンクにマウスを乗せると斜体になる', caption: 'Numbered links' },
+      ],
+      mobile: [
+        { src: 'images/templates/carte/m-hero.jpg', alt: 'スマートフォンでの表示' },
+      ],
+      includes: [
+        'HTML / CSS / JavaScript 一式(ビルド不要・外部ライブラリなし)',
+        'settings.js(編集するのはこの1ファイルだけ)',
+        '手順ガイド(START_HERE・日本語/英語)',
+        'デモと同じ名前の仮の画像',
+      ],
+      specs: [
+        { label: 'Pages', value: '1ページ' },
+        { label: 'Tone', value: '生成りの紙 / セリフ体' },
         { label: 'Built with', value: 'HTML, CSS, JavaScript' },
         { label: 'Use', value: 'Instagram のプロフィール、名刺、メールの署名' },
       ],

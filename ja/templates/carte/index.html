@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARTE — TraceStudio</title>
+<meta name="description" content="CARTE — 無料のリンクまとめ1ページのWebテンプレート。">
+<script>
+  // 動きの準備ができるまで要素を隠す。script.js が読めなかったときは、隠すのをやめて普通に表示する
+  document.documentElement.classList.add('js');
+  setTimeout(function () { if (!window.TRACE_READY) document.documentElement.classList.remove('js'); }, 2500);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css?v=27">
+<!-- structured-data:start (tools/build-structured-data.js で自動生成。手で編集しない) -->
+<link rel="canonical" href="https://tracebymori.com/ja/templates/carte/">
+<link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/carte/">
+<link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/carte/">
+<link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/carte/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://tracebymori.com/ja/templates/carte/#product",
+  "name": "CARTE",
+  "description": "Instagram のプロフィールや名刺、メールの署名に使える、無料のリンクまとめのページです。本の扉ページのように中央にそろえ、楕円の額の写真1枚、名前、I. II. III. と番号のついたリンクを並べます。設定はすべて settings.js の1ファイル。撮影データやリンクごとの写真、最近の写真も載せたくなったら、LOUPE があります。",
+  "image": [
+    "https://tracebymori.com/images/templates/carte/hero.jpg",
+    "https://tracebymori.com/images/templates/carte/product-4x3.jpg",
+    "https://tracebymori.com/images/templates/carte/product-1x1.jpg"
+  ],
+  "url": "https://tracebymori.com/ja/templates/carte/",
+  "sku": "TRACE-CARTE",
+  "brand": {
+    "@type": "Brand",
+    "name": "TraceStudio"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://tracebymori.com/ja/templates/carte/",
+    "price": "0.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "TraceStudio",
+      "url": "https://tracebymori.com/"
+    }
+  }
+}
+</script>
+<!-- structured-data:end -->
+</head>
+<!--
+  テンプレート詳細ページ。中身は data/templates.js の slug が data-template と一致するものから描画される。
+  新しいテンプレートを追加するときは、このフォルダを複製して <title>・description・data-template を書き換える。
+-->
+<body class="page-detail" data-base="../../../" data-home="../../" data-template="carte">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../" class="logo">TraceStudio</a>
+
+    <nav class="nav" id="nav" aria-label="メインナビゲーション">
+      <a href="../../#templates">Templates</a>
+      <a href="../../#services">Services</a>
+      <a href="../../#about">About</a>
+      <a href="../../#contact">Contact</a>
+      <a class="nav-lang" href="../../../templates/carte/" hreflang="en" lang="en">EN</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main class="detail" data-render="detail"></main>
+
+<footer class="site-footer">
+  <span class="footer-logo">TraceStudio</span>
+  <nav class="footer-nav" aria-label="フッター">
+    <a href="../../#templates">Templates</a>
+    <a href="../../guide/">導入ガイド</a>
+    <a href="../../#contact">Contact</a>
+    <a href="https://www.instagram.com/__tracestudio/" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <span class="footer-copy">&copy; 2026 TraceStudio</span>
+</footer>
+
+<script src="../../../data/templates.js?v=27"></script>
+<script src="../../../script.js?v=27"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cf12b9aeffe4a7aa56cfffbe704f1f8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

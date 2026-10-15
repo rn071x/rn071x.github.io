@@ -109,4 +109,16 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/loupe/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/loupe/"/>
   </url>
+  <url>
+    <loc>https://tracebymori.com/templates/carte/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/carte/"/>
+  </url>
+  <url>
+    <loc>https://tracebymori.com/ja/templates/carte/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tracebymori.com/templates/carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tracebymori.com/ja/templates/carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tracebymori.com/templates/carte/"/>
+  </url>
 </urlset>
